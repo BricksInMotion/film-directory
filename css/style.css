@@ -1,0 +1,183 @@
+:root {
+  --primary-bg-color: #292b33;
+  --accent-color-one: #272727;
+  --accent-color-two: #323541;
+  --text-color-body: #d6bed6;
+  /* --text-color-body: #caaaca; */
+  --text-color-header: #caaaca;
+  --text-color-links: rgb(246, 240, 240);
+  --text-color-links-border: #fff;
+}
+
+body.theme-light {
+
+}
+
+*, *::before, *::after { box-sizing:  border-box; }
+html { min-width: 320px; }
+
+body {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+
+  background-color: var(--primary-bg-color);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-color-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Zilla Slab", "Raleway", sans-serif;
+  color: var(--text-color-header);
+}
+h1, h2, h3 { font-weight: 500; }
+h4, h5, h6 { font-weight: 300; }
+
+header, footer {
+  background-color: var(--accent-color-one);
+}
+
+header {
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: flex-end;
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color-links);
+  border-bottom: 2px solid var(--text-color-links-border);
+  transition: border-bottom 0.2s ease;
+}
+a:hover, a:active { border-color: transparent; }
+
+blockquote {
+  padding-left: 0.6em;
+  border-left: 5px solid var(--text-color-header);
+}
+
+section {
+  padding: 0.75em 3em;
+}
+section:nth-child(odd) {
+  background-color: var(--accent-color-two);
+}
+
+section h3 {
+  margin: 0;
+  /* margin-top: -0.4em; */
+  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.4);
+}
+
+.film-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.film-info > div:first-of-type {
+  padding-right: 2em;
+  align-self: center;
+  /* float: left; */
+  /* display: flex;
+  padding-left: 1rem; */
+}
+.film-info > div:last-of-type {
+  /* padding-left: 2em; */
+  /* float: right; */
+}
+
+.film-info > div:first-of-type img {
+  /* align-self: center; */
+}
+
+.film-info h2 {
+  margin-bottom: 0;
+}
+
+/* Automatically add commas after list-type info  */
+.film-genres .genre:not(:last-of-type)::after,
+.film-warnings .warning:not(:last-of-type)::after
+ { content: ", "; }
+
+ /* TODO Add proper colors */
+.warning.moderate {
+  font-weight: 700;
+  color: #ffa500;
+}
+.warning.strong {
+  font-weight: 700;
+  color: #c87914;
+  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.5);
+}
+
+.film-links {
+  padding: 1  em 1em;
+
+  /* background-color: var(--accent-color-one); */
+}
+.film-links > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.link {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 0.92em;
+}
+
+.film-reviews blockquote {
+  line-height: 1.45;
+}
+
+.film-reviews strong {
+  /* quotes: "“" "”" "‘" "’"; */
+  quotes: "“" "”";
+  font-size: 1em;
+}
+
+.film-reviews strong::before {
+  content: open-quote;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.3);
+}
+
+.film-reviews p {
+  margin: 0;
+  margin-top: -0.0em;
+  margin-left: 1em;
+  /* font-style: italic; */
+}
+
+@media (max-width: 768px) {
+  .film-links > div {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .film-links h3 { text-align: center; }
+}
