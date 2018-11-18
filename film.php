@@ -30,8 +30,8 @@ $director = $film->get_director_info();
         endforeach;
         ?>
       </div>
-      <?php $film_reviews = $film->get_rating(); ?>
-      <span><strong>Rating</strong>: <?= $film_reviews->rating; ?>/5 (out of <?= $film_reviews->total_votes; ?> <?= $film_reviews->word; ?>)</span><br>
+      <?php $film_rating = $film->get_rating(); ?>
+      <span><strong>Rating</strong>: <?= $film_rating->rating; ?>/5 (out of <?= $film_rating->total_votes; ?> <?= $film_rating->word; ?>)</span><br>
       <div class="film-warnings"><strong>Content Advisory</strong>:
         <?php
         foreach ($film->get_warnings() as $value):
@@ -64,11 +64,14 @@ $director = $film->get_director_info();
 
   <section class="film-cast-crew">
     <h3>Cast &amp; Crew</h3>
+    <h3>Staff Ratings</h3>
+    <h3>Honors</h3>
   </section>
 
   <section class="film-reviews">
     <h3>Staff Reviews</h3>
-    <?php foreach ($film->get_reviews() as $record): ?>
+    <?php
+    foreach ($film->get_reviews() as $record): ?>
     <blockquote>
       <strong><?= $record->real_name; ?></strong>
       <p><?= convert_bb_code($record->comments); ?></p>
