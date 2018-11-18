@@ -6,7 +6,7 @@ require_once 'partials/header.php';
 require_once 'src/classes/Film.php';
 require_once 'src/common_utils.php';
 
-// TODO: XSS check
+// TODO: XSS/invalid arg check
 $film = new Film($_GET['film_id']);
 $film_info = $film->get_film_info();
 $director = $film->get_director_info();
@@ -14,48 +14,47 @@ $director = $film->get_director_info();
 
 <main>
   <section class="film-info">
-    <div>
-      <img alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">
+    <div class="image">
+      <img class="film-thumbnail" alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">
     </div>
 
-    <div>
+    <div class="info">
       <h2><?= $film_info->title; ?></h2>
-      <span>Directed By: <a href="director.php?director_id=<?= $director->user_id; ?>"><?= $director->real_name; ?> (<small><?= $director->user_name; ?></small>)</a></span><br>
-      <span>Released: <?= format_film_release_date($film_info->release_date); ?></span><br>
-      <div class="film-genres">Genres:
+      <span><strong>Directed By</strong>: <a href="director.php?director_id=<?= $director->user_id; ?>"><?= $director->real_name; ?> (<small><?= $director->user_name; ?></small>)</a></span><br>
+      <span><strong>Released</strong>: <?= format_film_release_date($film_info->release_date); ?></span><br>
+      <span><strong>Runtime</strong>: <?= format_film_runtime($film_info->length); ?></span><br>
+      <div class="film-genres"><strong>Genres</strong>:
         <?php
-        foreach ($film->get_genres() as $record) {
+        foreach ($film->get_genres() as $record):
           echo "<span class='genre'>{$record->genre}</span>";
-        }
+        endforeach;
         ?>
       </div>
-      <span>Runtime: <?= format_film_runtime($film_info->length); ?></span><br>
       <?php $film_reviews = $film->get_rating(); ?>
-      <span>Rating: <?= $film_reviews->rating; ?>/5 (out of <?= $film_reviews->total_votes; ?> <?= $film_reviews->word; ?>)</span><br>
-      <div class="film-warnings">Content Advisory:
+      <span><strong>Rating</strong>: <?= $film_reviews->rating; ?>/5 (out of <?= $film_reviews->total_votes; ?> <?= $film_reviews->word; ?>)</span><br>
+      <div class="film-warnings"><strong>Content Advisory</strong>:
         <?php
-        foreach ($film->get_warnings() as $value) {
+        foreach ($film->get_warnings() as $value):
           $str = "<span class='warning |severity|'>|capital_severity| |type|</span>";
           $str = str_replace('|severity|', $value['severity'], $str);
           $str = str_replace('|capital_severity|', ucfirst($value['severity']), $str);
           $str = str_replace('|type|', $value['type'], $str);
           echo $str;
-        }
+        endforeach;
         ?>
       </div>
     </div>
 
-  </section>
-
-  <section class="film-links">
-    <h3>Watch</h3>
-    <div>
-      <?php
-      foreach ($film->get_links() as $record) {
-        echo "<span class='link'><a href='{$record->link}' target='_blank'>{$record->label}</a></span>";
-      }
-      ?>
-    </div>
+    <section class="film-links">
+      <h3>Watch</h3>
+      <div>
+        <?php
+        foreach ($film->get_links() as $record):
+          echo "<span class='link'><a href='{$record->link}' target='_blank'>{$record->label}</a></span>";
+        endforeach;
+        ?>
+      </div>
+    </section>
   </section>
 
   <section class="film-desc">

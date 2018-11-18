@@ -1,28 +1,23 @@
 :root {
   --primary-bg-color: #292b33;
-  --accent-color-one: #272727;
+  /* --accent-color-one: #272727; */
+  --accent-color-one: #333131;
   --accent-color-two: #323541;
-  --text-color-body: #d6bed6;
   /* --text-color-body: #caaaca; */
-  --text-color-header: #caaaca;
-  --text-color-links: rgb(246, 240, 240);
+  --text-color-body: #d6bed6;
+  /* --text-color-header: #d1bad1; */
+  --text-color-header: #eee1e1;
+  --text-color-links: #f6f0f0;
   --text-color-links-border: #fff;
 }
-
-body.theme-light {
-
-}
-
 *, *::before, *::after { box-sizing:  border-box; }
 html { min-width: 320px; }
 
 body {
   margin: 0;
-  padding: 0;
 
   display: flex;
   flex-direction: column;
-
 
   background-color: var(--primary-bg-color);
   font-family: "IBM Plex Sans", sans-serif;
@@ -68,7 +63,7 @@ img {
 a {
   text-decoration: none;
   color: var(--text-color-links);
-  border-bottom: 2px solid var(--text-color-links-border);
+  border-bottom: 2px solid currentColor;
   transition: border-bottom 0.2s ease;
 }
 a:hover, a:active { border-color: transparent; }
@@ -79,7 +74,7 @@ blockquote {
 }
 
 section {
-  padding: 0.75em 3em;
+  padding: 0.75em 4%;
 }
 section:nth-child(odd) {
   background-color: var(--accent-color-two);
@@ -87,41 +82,43 @@ section:nth-child(odd) {
 
 section h3 {
   margin: 0;
-  /* margin-top: -0.4em; */
-  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.4);
+  text-shadow: 1px 1px 5px rgba(0, 0,0 ,0.3);
 }
 
 .film-info {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
 }
 
-.film-info > div:first-of-type {
+.film-info .image {
   padding-right: 2em;
   align-self: center;
-  /* float: left; */
-  /* display: flex;
-  padding-left: 1rem; */
-}
-.film-info > div:last-of-type {
-  /* padding-left: 2em; */
-  /* float: right; */
 }
 
-.film-info > div:first-of-type img {
+.film-info .image img {
   /* align-self: center; */
 }
 
+.film-info .info { font-size: 0.95em; }
+
 .film-info h2 {
   margin-bottom: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.4);
+}
+
+.film-info .film-thumbnail {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Automatically add commas after list-type info  */
 .film-genres .genre:not(:last-of-type)::after,
-.film-warnings .warning:not(:last-of-type)::after
- { content: ", "; }
+.film-warnings .warning:not(:last-of-type)::after {
+  content: ", ";
+}
 
- /* TODO Add proper colors */
+ /* TODO: Add proper colors */
 .warning.moderate {
   font-weight: 700;
   color: #ffa500;
@@ -133,21 +130,26 @@ section h3 {
 }
 
 .film-links {
-  padding: 1  em 1em;
+  /* padding: 1 em 1em; */
 
   /* background-color: var(--accent-color-one); */
 }
+
+.film-links h3 { text-align: center; }
+
 .film-links > div {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
 
 .link {
+  display: block;
   margin-left: 0.5em;
   margin-right: 0.5em;
   font-size: 0.92em;
+  text-align: center;
 }
 
 .film-reviews blockquote {
@@ -155,29 +157,31 @@ section h3 {
 }
 
 .film-reviews strong {
-  /* quotes: "“" "”" "‘" "’"; */
   quotes: "“" "”";
   font-size: 1em;
 }
 
 .film-reviews strong::before {
+  position: relative;
+  top: 0.2em;
+
   content: open-quote;
   font-size: 2.5em;
-  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.3);
+  text-shadow: 2px 2px 3px rgba(0, 0,0 ,0.3);
 }
 
 .film-reviews p {
   margin: 0;
   margin-top: -0.0em;
   margin-left: 1em;
-  /* font-style: italic; */
 }
 
 @media (max-width: 768px) {
   .film-links > div {
-    width: 100%;
-    justify-content: center;
+    /* width: 100%; */
+    /* justify-content: center; */
   }
 
+  .film-links > div { width: 12.5em; }
   .film-links h3 { text-align: center; }
 }

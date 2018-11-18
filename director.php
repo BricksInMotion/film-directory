@@ -6,7 +6,7 @@ require_once 'partials/header.php';
 require_once 'src/classes/Director.php';
 // require_once 'src/common_utils.php';
 
-// TODO: XSS check
+// TODO: XSS/invalid arg check
 $director = new Director($_GET['director_id']);
 // TODO: if director_id === 0, no director found
 ?>
