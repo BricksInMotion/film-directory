@@ -196,8 +196,6 @@ class Film {
     // This adds some complexity to the query but allows us to
     // pull all the data we need in one swoop.
     // Man, I _LOVE_ half-designed, half-organically grown databases!! /s
-    // TODO: film #35 is another special case
-    // TODO: film #536 is another special case (special thanks)
     $stmt = $pdo->prepare('SELECT
     `films_crewtype`.`crewname`,
     `name` AS `raw_db_name`,
@@ -214,10 +212,8 @@ class Film {
 
     // Get the custom-defined roles, again taking into account
     // the /(user|real)_name/ data location difference
-    // TODO: film #35 is another special case
-    // TODO: film #536 is another special case (special thanks)
     $stmt = $pdo->prepare('SELECT
-    `cast` AS `crewname`,
+    IF(`cast` = "", `crewdesc`, `cast`) AS `crewname`,
     `name` AS `raw_db_name`,
     IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
     (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
@@ -262,7 +258,7 @@ class Film {
     $honors = [
       '1' => 'No honors given',
       '2' => 'No honors given',
-      '3' => 'Reviewer\'s Pick',
+      '3' => "Reviewer's Pick",
       '4' => 'Staff Favorite'
     ];
     return $honors[$r->review_stat];

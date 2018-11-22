@@ -8,5 +8,5 @@ require_once 'src/classes/Director.php';
 
 // TODO: XSS/invalid arg check
 $director = new Director($_GET['director_id']);
-// TODO: if director_id === 0, no director found
+// TODO: if director_id === 0 OR id has no record, no director found
 ?>
