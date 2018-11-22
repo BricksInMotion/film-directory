@@ -52,7 +52,6 @@ class Film {
       $fake_info->real_name = 'Unknown';
       return $fake_info;
     }
-
     return $info;
   }
 
@@ -187,13 +186,52 @@ class Film {
   function get_cast_crew() {
     require 'src/db-connect.php';
 
-    // $stmt = $pdo->prepare('SELECT `genre`
-    // FROM `genres`
-    // INNER JOIN `films_genre` ON `genres`.`id` = `films_genre`.`genres_id`
-    // WHERE `films_genre`.`film_id` = ?');
+    // Get the predefined roles
+    // Both this query and the query for custom-defined roles
+    // must take into account the `name` column being NULL
+    // because the person being referenced has a record
+    // in the `films_users` table and their /(user|real)_name/ is used for
+    // their name instead of it being stored in the `films_castcrew` table,
+    // as it is when the person is _not_ a registered user.
+    // This adds some complexity to the query but allows us to
+    // pull all the data we need in one swoop.
+    // Man, I _LOVE_ half-designed, half-organically grown databases!! /s
+    $stmt = $pdo->prepare('SELECT
+    `films_crewtype`.`crewname`,
+    `name` AS `raw_name`,
+    IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
+    (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
+    (SELECT IF(ISNULL(`raw_name`), `raw_user_name`, `raw_name`)) AS `name`
+    FROM `films_castcrew`
+    INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
+    WHERE `job` < 8 AND `film_id` = ?
+    ORDER BY `job` ASC');
+    $stmt->execute([$this->id]);
+    $standard_roles = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    // $stmt->execute([$this->id]);
-    // return $stmt->fetchAll(PDO::FETCH_OBJ);
+    // Get the custom-defined roles, again taking into account
+    // the /(user|real)_name/ data location difference
+    $stmt = $pdo->prepare('SELECT
+    `cast` AS `crewname`,
+    `name` AS `raw_name`,
+    IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
+    (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
+    (SELECT IF(ISNULL(`raw_name`), `raw_user_name`, `raw_name`)) AS `name`
+    FROM `films_castcrew`
+    INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
+    WHERE `job` >= 8 AND `film_id` = ?
+    ORDER BY `job` ASC');
+    $stmt->execute([$this->id]);
+    $custom_roles = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    // Merge the two arrays and drop the temporary (`raw_`) keys
+    $all_roles = array_merge($standard_roles, $custom_roles);
+    array_map(function($k) {
+      unset($k->raw_name);
+      unset($k->raw_user_name);
+      return $k;
+    }, $all_roles);
+    return $all_roles;
   }
 
   function get_staff_ratings() {

@@ -34,11 +34,11 @@ $director = $film->get_director_info();
       <span><strong>Rating</strong>: <?= $film_rating->rating; ?>/5 (out of <?= $film_rating->total_votes; ?> <?= $film_rating->word; ?>)</span><br>
       <div class="film-warnings"><strong>Content Advisory</strong>:
         <?php
-        foreach ($film->get_warnings() as $value):
+        foreach ($film->get_warnings() as $warning):
           $str = "<span class='warning |severity|'>|capital_severity| |type|</span>";
-          $str = str_replace('|severity|', $value['severity'], $str);
-          $str = str_replace('|capital_severity|', ucfirst($value['severity']), $str);
-          $str = str_replace('|type|', $value['type'], $str);
+          $str = str_replace('|severity|', $warning['severity'], $str);
+          $str = str_replace('|capital_severity|', ucfirst($warning['severity']), $str);
+          $str = str_replace('|type|', $warning['type'], $str);
           echo $str;
         endforeach;
         ?>
@@ -62,10 +62,28 @@ $director = $film->get_director_info();
     <blockquote><?= convert_bb_code($film_info->desc); ?></blockquote>
   </section>
 
-  <section class="film-cast-crew">
-    <h3>Cast &amp; Crew</h3>
-    <h3>Staff Ratings</h3>
-    <h3>Honors</h3>
+  <section class="film-critiques">
+    <div class="film-cast-crew">
+      <h3>Cast &amp; Crew</h3>
+      <?php
+        foreach ($film->get_cast_crew() as $job):
+          echo "<div>
+            <a href='director.php?director_id={$job->cc_user_id}'>{$job->name}</a>
+            <span>{$job->crewname}</span>
+          </div>";
+        endforeach;
+        ?>
+    </div>
+
+    <div class="film-staff-ratings">
+      <h3>Staff Ratings</h3>
+
+    </div>
+
+    <div class="film-honors">
+      <h3>Honors</h3>
+
+    </div>
   </section>
 
   <section class="film-reviews">
