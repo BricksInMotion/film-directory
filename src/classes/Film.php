@@ -198,10 +198,11 @@ class Film {
     // Man, I _LOVE_ half-designed, half-organically grown databases!! /s
     $stmt = $pdo->prepare('SELECT
     `films_crewtype`.`crewname`,
-    `name` AS `raw_name`,
+    `name` AS `raw_db_name`,
     IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
     (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
-    (SELECT IF(ISNULL(`raw_name`), `raw_user_name`, `raw_name`)) AS `name`
+    (SELECT IF(ISNULL(`raw_db_name`), `raw_user_name`, `raw_db_name`)) AS `raw_name`,
+    (SELECT IF(ISNULL(`raw_name`), "Unknown", `raw_name`)) AS `name`
     FROM `films_castcrew`
     INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
     WHERE `job` < 8 AND `film_id` = ?
@@ -213,10 +214,11 @@ class Film {
     // the /(user|real)_name/ data location difference
     $stmt = $pdo->prepare('SELECT
     `cast` AS `crewname`,
-    `name` AS `raw_name`,
+    `name` AS `raw_db_name`,
     IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
     (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
-    (SELECT IF(ISNULL(`raw_name`), `raw_user_name`, `raw_name`)) AS `name`
+    (SELECT IF(ISNULL(`raw_db_name`), `raw_user_name`, `raw_db_name`)) AS `raw_name`,
+    (SELECT IF(ISNULL(`raw_name`), "Unknown", `raw_name`)) AS `name`
     FROM `films_castcrew`
     INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
     WHERE `job` >= 8 AND `film_id` = ?
@@ -228,6 +230,7 @@ class Film {
     $all_roles = array_merge($standard_roles, $custom_roles);
     array_map(function($k) {
       unset($k->raw_name);
+      unset($k->raw_db_name);
       unset($k->raw_user_name);
       return $k;
     }, $all_roles);
