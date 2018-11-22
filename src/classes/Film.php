@@ -106,7 +106,7 @@ class Film {
     // This film has no reviews, provide text that says so
     if (count($reviews) === 0) {
       $reviews = new stdClass();
-      $reviews->real_name = 'This film has not been reviewed!';
+      $reviews->real_name = 'This film has not been reviewed';
       $reviews->comments = '';
 
       // We expect an array containing `stdClass`es,

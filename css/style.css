@@ -71,7 +71,7 @@ a:hover, a:active { border-color: transparent; }
 
 blockquote {
   padding-left: 0.6em;
-  border-left: 5px solid var(--text-color-header);
+  border-left: 3px solid var(--text-color-header);
 }
 
 section {
@@ -158,6 +158,7 @@ section h3 {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.film-critiques h3 { text-align: center; }
 
 /* Cast & Crew info */
 .film-cast-crew div { width: 14em; }
@@ -165,32 +166,20 @@ section h3 {
 
 /* Film reviews */
 .film-reviews blockquote {
+  quotes: "“" "”";
   line-height: 1.45;
 }
 
-.film-reviews strong {
-  quotes: "“" "”";
-  font-size: 1em;
-}
-
-.film-reviews strong::before {
-  position: relative;
-  top: 0.2em;
-  margin-right: 0.1em;
-
+.film-reviews blockquote::before {
   content: open-quote;
-  font-size: 2.5em;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0 ,0.3);
-}
-
-.film-reviews p {
-  margin: 0;
-  margin-top: -0.0em;
-  margin-left: 1em;
+  font-size: 2em;
+  opacity: 0.35;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
   header { align-items: center; }
+  blockquote { margin-left: 0.5em; }
 
   .film-links > div {
     /* width: 100%; */
@@ -199,4 +188,12 @@ section h3 {
 
   .film-links > div { width: 12.5em; }
   .film-links h3 { text-align: center; }
+
+  .film-critiques {
+    flex-direction: column;
+    align-items: center;
+  }
+  .film-critiques > div {
+    margin-bottom: 0.5em;
+  }
 }
