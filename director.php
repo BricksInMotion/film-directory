@@ -3,7 +3,7 @@ $pageTitle = 'View Director';
 require_once 'src/db-connect.php';
 require_once 'partials/head.php';
 require_once 'partials/header.php';
-require_once 'src/common_utils.php';
+require_once 'src/common-utils.php';
 require_once 'src/classes/Director.php';
 
 
