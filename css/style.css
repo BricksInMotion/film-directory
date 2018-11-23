@@ -60,6 +60,7 @@ footer {
   text-align: center;
   font-size: 0.87em;
 }
+footer div { margin-bottom: 0.5em; }
 
 img {
   max-width: 100%;

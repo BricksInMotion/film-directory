@@ -37,3 +37,8 @@ function format_film_release_date($date) {
   $dt = new DateTime($date);
   return $dt->format('F jS, Y');
 }
+
+function redirect_url($url) {
+  header("Location: {$url}");
+  exit;
+}
