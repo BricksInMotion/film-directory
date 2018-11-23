@@ -9,6 +9,9 @@
   --text-color-header: #eee1e1;
   --text-color-links: #f6f0f0;
   --text-color-links-border: #fff;
+
+  --font-stack-body: "Raleway", sans-serif;
+  --font-stack-header: "Zilla Slab", var(--font-stack-body);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -22,7 +25,7 @@ body {
   height: 100vh;
 
   background-color: var(--primary-bg-color);
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack-body);
   font-size: 17px;
   line-height: 1.6;
   font-weight: 400;
@@ -30,7 +33,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Zilla Slab", "Raleway", sans-serif;
+  font-family: var(--font-stack-header);
   color: var(--text-color-header);
 }
 h1, h2, h3 { font-weight: 500; }
