@@ -277,12 +277,15 @@ class Film {
 
     // Extract the ratings for this film
     $final_ratings = [];
+    // TODO: Some categories don't have ratings (ex: #25)
     foreach ($raw_ratings as $rating) {
       $indv = new stdClass();
 
       // Extract the rating category ID from the record ID and
       // associate each category with the proper rating
-      $review_code = substr($rating->id, 3, strlen($this->id) - 1);
+      // Get the negative length of the film ID for proper slicing
+      $slice_end = -strlen($this->id);
+      $review_code = substr($rating->id, 3, $slice_end);
       $indv->category = $categories[$review_code];
       $indv->rating = $rating->rating;
       $final_ratings[] = $indv;
