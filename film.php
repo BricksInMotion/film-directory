@@ -6,7 +6,6 @@ require_once 'src/common-utils.php';
 require_once 'src/classes/Film.php';
 
 
-// TODO: Invalid arg check
 $film_id = escapeXSS($_GET['film_id']);
 $film = new Film($film_id);
 

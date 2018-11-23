@@ -64,7 +64,7 @@ class Film {
     $stmt->execute([$this->id]);
     $info = $stmt->fetch(PDO::FETCH_OBJ);
 
-    // The user id that submitted this film doesn't exist
+    // The director id that submitted this film doesn't exist
     // Provide dummy info that indicates such
     if ($info === false) {
       $fake_info = new stdClass();
