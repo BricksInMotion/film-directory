@@ -179,7 +179,12 @@ section h3 {
   font-weight: 700;
 }
 
-/* TODO: Restore .film-reviews strong rules */
+.film-reviews p {
+  margin: 0;
+  margin-top: -0.0em;
+  margin-left: 1em;
+  font-size: 0.93em;
+}
 
 @media (max-width: 768px) {
   header { align-items: center; }
