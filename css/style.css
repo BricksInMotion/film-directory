@@ -177,14 +177,15 @@ section h3 {
 /* Film reviews */
 .film-reviews blockquote {
   quotes: "“" "”";
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .film-reviews blockquote::before {
   content: open-quote;
+  font-family: var(--font-stack-header);
   font-size: 2em;
-  opacity: 0.35;
   font-weight: 700;
+  opacity: 0.35;
 }
 
 .film-reviews p {
