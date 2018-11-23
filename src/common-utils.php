@@ -17,7 +17,7 @@ function convert_bb_code($str) {
 
   $str = str_replace($start_bb_tags, $start_html_tags, $str);
   $str = str_replace($end_bb_tags, $end_html_tags, $str);
-  return trim($str);
+  return nl2br(trim($str));
 }
 
 function format_film_runtime($seconds) {
