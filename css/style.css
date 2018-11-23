@@ -138,6 +138,7 @@ section h3 {
   text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.5);
 }
 
+/* Film watch links */
 .film-links {
   /* padding: 1 em 1em; */
 
@@ -161,6 +162,10 @@ section h3 {
   text-align: center;
 }
 
+/* Film description */
+.film-desc br { display: inherit; }
+
+/* Film critiques section */
 .film-critiques {
   display: flex;
   flex-wrap: wrap;
