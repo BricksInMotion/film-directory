@@ -75,14 +75,21 @@ $director = $film->get_director_info();
         ?>
     </div>
 
-    <div class="film-staff-ratings">
-      <h3>Staff Ratings</h3>
-
-    </div>
-
     <div class="film-honors">
       <h3>Honors</h3>
       <?= $film->get_honors(); ?>
+    </div>
+
+    <div class="film-staff-ratings">
+      <h3>Staff Ratings</h3>
+      <?php
+        foreach ($film->get_staff_ratings() as $sr):
+          echo "<div>
+            <strong>{$sr[0]}</strong>
+            <span>{$sr[1]}</span>
+          </div>";
+        endforeach;
+        ?>
     </div>
   </section>
 

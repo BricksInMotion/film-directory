@@ -160,9 +160,11 @@ section h3 {
 }
 .film-critiques h3 { text-align: center; }
 
-/* Cast & Crew info */
-.film-cast-crew div { width: 14em; }
-.film-cast-crew span { float: right; }
+/* Cast & Crew/Staff Ratings */
+.film-cast-crew div,
+.film-staff-ratings div { width: 14em; }
+.film-cast-crew span,
+.film-staff-ratings span { float: right; }
 
 /* Film reviews */
 .film-reviews blockquote {
@@ -196,6 +198,6 @@ section h3 {
     align-items: center;
   }
   .film-critiques > div {
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 }
