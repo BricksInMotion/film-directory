@@ -240,25 +240,28 @@ class Film {
   function get_staff_ratings() {
     require 'src/db-connect.php';
 
+    // BTW, never generate primary IDs like this table has.
+    // Add a new column to the rows each with a unique number
+    // indicating what each category represents. _Please._
+    // Having to use a regex to select the records is... bad
     $stmt = $pdo->prepare('SELECT
     `id`,
     ROUND(`total_value` / `total_votes`, 1) AS `rating`
     FROM films_user_rate
     WHERE id REGEXP CONCAT("^rev..", ?, "$")');
     $stmt->execute([$this->id]);
-    // TODO: Maybe change this to FETCH_ASSOC
-    $ratings = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $raw_ratings = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-
-    // There are no ratings
-    // TODO: Properly define this
-    // var_dump($ratings);
-    if (count($ratings) === 0) {
+    // There are no ratings for this film
+    // TODO: Properly fill this in
+    if (count($raw_ratings) === 0) {
+      $indv = new stdClass();
+      return $indv;
       // echo 'No ratings given';
     }
 
-    // Define the rating labels
-    $labels = [
+    // Define the rating categories
+    $categories = [
       'Ov' => 'Overall',
       'St' => 'Story',
       'An' => 'Animation',
@@ -268,27 +271,18 @@ class Film {
       'Mu' => 'Music'
     ];
 
-    // echo '<pre>';
-    // Extract the review type codes from the IDs
-    // TODO: This is a mess. Make it cleaner and return values by name
-    // like the rest of the methods
-    $regex = '/^rev(\w{2})\d+$/';
-    $matches = [];
-    foreach ($ratings as $i => $rating) {
-      preg_match($regex, $rating->id, $matches[]);
-
-      $matches[$i][0] = $labels[$matches[$i][1]];
-      unset($matches[$i][1]);
-      $matches[$i][2] = $rating->rating;
-      $matches[$i] = array_values($matches[$i]);
-    }
-
+    // Extract the ratings for this film
     $final_ratings = [];
-    foreach ($matches as $value) {
-      $final_ratings[strtolower($value[0])] = $value;
-    }
-    // echo '</pre>';
+    foreach ($raw_ratings as $rating) {
+      $indv = new stdClass();
 
+      // Extract the rating category ID from the record ID and
+      // associate each category with the proper rating
+      $review_code = substr($rating->id, 3, strlen($this->id) - 1);
+      $indv->category = $categories[$review_code];
+      $indv->rating = $rating->rating;
+      $final_ratings[] = $indv;
+    }
     return $final_ratings;
   }
 

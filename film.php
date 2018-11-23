@@ -87,8 +87,8 @@ $director = $film->get_director_info();
       <?php
         foreach ($film->get_staff_ratings() as $sr):
           echo "<div>
-            <strong>{$sr[0]}</strong>
-            <span>{$sr[1]}</span>
+            <strong>{$sr->category}</strong>
+            <span>{$sr->rating}</span>
           </div>";
         endforeach;
         ?>
