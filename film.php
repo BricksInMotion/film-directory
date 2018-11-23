@@ -10,6 +10,12 @@ require_once 'src/classes/Film.php';
 // TODO: Invalid arg check
 $film_id = escapeXSS($_GET['film_id']);
 $film = new Film($film_id);
+
+// Get out of her if the film doesn't exist
+if ($film->get_film_exists() === false) {
+  redirect_url('404.php');
+}
+
 $film_info = $film->get_film_info();
 $director = $film->get_director_info();
 ?>

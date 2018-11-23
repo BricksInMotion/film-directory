@@ -8,7 +8,26 @@ class Film {
   }
 
   /**
+   * Determine if the film exists.
+   *
+   * @return {bool}
+   */
+  function get_film_exists() {
+    require 'src/db-connect.php';
+
+    $stmt = $pdo->prepare('SELECT
+    1
+    FROM `films`
+    WHERE `films`.`id`= ?
+    LIMIT 1');
+    $stmt->execute([$this->id]);
+    return (bool) $stmt->fetch(PDO::FETCH_OBJ);
+  }
+
+  /**
    * Get the film's basic info.
+   *
+   * @return {stdClass}
    */
   function get_film_info() {
     require 'src/db-connect.php';
@@ -28,6 +47,8 @@ class Film {
 
   /**
    * Get the film director's info.
+   *
+   * @return {stdClass}
    */
   function get_director_info() {
     require 'src/db-connect.php';
@@ -57,6 +78,8 @@ class Film {
 
   /**
    * Get the film's rating.
+   *
+   * @return {stdClass}
    */
   function get_rating() {
     require 'src/db-connect.php';
@@ -79,6 +102,8 @@ class Film {
 
   /**
    * Get all links to the film.
+   *
+   * @return {stdClass}
    */
   function get_links() {
     require 'src/db-connect.php';
@@ -92,6 +117,8 @@ class Film {
 
   /**
    * Get all user reviews of the film.
+   *
+   * @return {array}
    */
   function get_reviews() {
     require 'src/db-connect.php';
@@ -118,6 +145,8 @@ class Film {
 
   /**
    * Get the film's genres.
+   *
+   * @return {stdClass}
    */
   function get_genres() {
     require 'src/db-connect.php';
@@ -132,6 +161,8 @@ class Film {
 
   /**
    * Get the film's warnings, if any.
+   *
+   * @return {stdClass}
    */
   function get_warnings() {
     require 'src/db-connect.php';
@@ -182,6 +213,8 @@ class Film {
 
   /**
    * Get the film's cast and crew.
+   *
+   * @return {array}
    */
   function get_cast_crew() {
     require 'src/db-connect.php';
@@ -239,6 +272,8 @@ class Film {
 
   /**
    * Get the film's staff ratings.
+   *
+   * @return {array}
    */
   function get_staff_ratings() {
     require 'src/db-connect.php';
@@ -299,6 +334,8 @@ class Film {
 
   /**
    * Get the film's given honors.
+   *
+   * @return {string}
    */
   function get_honors() {
     require 'src/db-connect.php';
