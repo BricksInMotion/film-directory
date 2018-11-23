@@ -246,7 +246,8 @@ class Film {
     // Having to use a regex to select the records is... bad
     $stmt = $pdo->prepare('SELECT
     `id`,
-    ROUND(`total_value` / `total_votes`, 1) AS `rating`
+    ROUND(`total_value` / `total_votes`, 1) AS `raw_rating`,
+    (SELECT IF(ISNULL(`raw_rating`), "N/A", `raw_rating`)) AS `rating`
     FROM films_user_rate
     WHERE id REGEXP CONCAT("^rev..", ?, "$")');
     $stmt->execute([$this->id]);
@@ -277,7 +278,6 @@ class Film {
 
     // Extract the ratings for this film
     $final_ratings = [];
-    // TODO: Some categories don't have ratings (ex: #25)
     foreach ($raw_ratings as $rating) {
       $indv = new stdClass();
 
