@@ -109,7 +109,7 @@ class Film {
       $reviews->real_name = 'This film has not been reviewed';
       $reviews->comments = '';
 
-      // We expect an array containing `stdClass`es,
+      // We expect an array of `stdClass`es,
       // so we need to replicate that here
       $reviews = [$reviews];
     }
@@ -256,8 +256,12 @@ class Film {
     // TODO: Properly fill this in
     if (count($raw_ratings) === 0) {
       $indv = new stdClass();
-      return $indv;
-      // echo 'No ratings given';
+      $indv->category = '';
+      $indv->rating = 'No ratings given';
+
+      // We expect an array of `stdClass`es,
+      // so we need to replicate that here
+      return [$indv];
     }
 
     // Define the rating categories
