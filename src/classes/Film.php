@@ -240,6 +240,56 @@ class Film {
   function get_staff_ratings() {
     require 'src/db-connect.php';
 
+    $stmt = $pdo->prepare('SELECT
+    `id`,
+    ROUND(`total_value` / `total_votes`, 1) AS `rating`
+    FROM films_user_rate
+    WHERE id REGEXP CONCAT("^rev..", ?, "$")');
+    $stmt->execute([$this->id]);
+    // TODO: Maybe change this to FETCH_ASSOC
+    $ratings = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    var_dump($ratings);
+
+    // There are no ratings
+    // TODO: Properly define this
+    if (count($ratings) === 0) {
+      // echo 'No ratings given';
+    }
+
+    // Define the rating labels
+    $labels = [
+      'Ov' => 'Overall',
+      'St' => 'Story',
+      'An' => 'Animation',
+      'Ci' => 'Cinematography',
+      'Ef' => 'Effects',
+      'So' => 'Sound',
+      'Mu' => 'Music'
+    ];
+
+    // echo '<pre>';
+    // Extract the review type codes from the IDs
+    // TODO: This is a mess. Make it cleaner and return values by name
+    // like the rest of the methods
+    $regex = '/^rev(\w{2})\d+$/';
+    $matches = [];
+    foreach ($ratings as $i => $rating) {
+      preg_match($regex, $rating->id, $matches[]);
+
+      $matches[$i][0] = $labels[$matches[$i][1]];
+      unset($matches[$i][1]);
+      $matches[$i][2] = $rating->rating;
+      $matches[$i] = array_values($matches[$i]);
+    }
+
+    $final_ratings = [];
+    foreach ($matches as $value) {
+      $final_ratings[strtolower($value[0])] = $value;
+    }
+    // echo '</pre>';
+
+    return $final_ratings;
   }
 
   /**
