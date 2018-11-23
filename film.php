@@ -16,13 +16,13 @@ $director = $film->get_director_info();
 
 <main>
   <section class="film-info">
-    <div class="image">
-      <img class="film-thumbnail" alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">
+    <div class="thumbnail">
+      <img alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">
     </div>
 
-    <div class="info">
+    <div class="details">
       <h2><?= $film_info->title; ?></h2>
-      <span><strong>Directed By</strong>: <a href="director.php?director_id=<?= $director->user_id; ?>"><?= $director->real_name; ?> (<small><?= $director->user_name; ?></small>)</a></span><br>
+      <span><strong>Directed By</strong>: <a href="director.php?director_id=<?= $director->user_id; ?>"><?= $director->real_name; ?> <small>(<?= $director->user_name; ?>)</small></a></span><br>
       <span><strong>Released</strong>: <?= format_film_release_date($film_info->release_date); ?></span><br>
       <span><strong>Runtime</strong>: <?= format_film_runtime($film_info->length); ?></span><br>
       <div class="film-genres"><strong>Genres</strong>:

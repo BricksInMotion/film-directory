@@ -91,33 +91,30 @@ section:nth-child(odd) {
 
 section h3 {
   margin: 0;
-  text-shadow: 1px 1px 5px rgba(0, 0,0 ,0.3);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0 ,0.3);
 }
 
+/* Film info */
 .film-info {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-evenly;
   align-items: baseline;
 }
 
-.film-info .image {
+.film-info h2 {
+  margin-bottom: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0 ,0.4);
+}
+.film-info .details span { font-size: 0.93em; }
+
+/* Film thumbnail */
+.film-info > .thumbnail {
   padding-right: 2em;
   align-self: center;
 }
-
-.film-info .image img {
-  /* align-self: center; */
-}
-
-.film-info .info { font-size: 0.95em; }
-
-.film-info h2 {
-  margin-bottom: 0;
-  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.4);
-}
-
-.film-info .film-thumbnail {
+.film-info > .thumbnail > img {
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -135,24 +132,13 @@ section h3 {
 .warning.strong {
   font-weight: 700;
   color: #c87914;
-  text-shadow: 2px 2px 5px rgba(0, 0,0 ,0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0 ,0.5);
 }
 
 /* Film watch links */
-.film-links {
-  /* padding: 1 em 1em; */
-
-  /* background-color: var(--accent-color-one); */
-}
-
+.film-links { }
 .film-links h3 { text-align: center; }
-
-.film-links > div {
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: center; */
-}
+.film-links > div { }
 
 .link {
   display: block;
@@ -163,7 +149,7 @@ section h3 {
 }
 
 /* Film description */
-.film-desc br { display: inherit; }
+.film-desc { }
 
 /* Film critiques section */
 .film-critiques {
@@ -205,11 +191,6 @@ section h3 {
   header { align-items: center; }
   blockquote { margin-left: 0.5em; }
 
-  .film-links > div {
-    /* width: 100%; */
-    /* justify-content: center; */
-  }
-
   .film-links > div { width: 12.5em; }
   .film-links h3 { text-align: center; }
 
@@ -217,7 +198,5 @@ section h3 {
     flex-direction: column;
     align-items: center;
   }
-  .film-critiques > div {
-    margin-bottom: 1em;
-  }
+  .film-critiques > div { margin-bottom: 1em; }
 }
