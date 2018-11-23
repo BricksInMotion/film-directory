@@ -7,7 +7,18 @@ require_once 'src/classes/Director.php';
 
 
 // TODO: Invalid arg check
-$director_id = escapeXSS($_GET['directorid']);
+$director_id = escapeXSS($_GET['director_id']);
 $director = new Director($director_id);
-// TODO: if director_id === 0 OR id has no record, no director found
+
+// Get out of here if the director doesn't exist
+if ($director->get_director_exists() === false) {
+  redirect_url('404.php');
+}
 ?>
+
+<main>
+</main>
+
+<?php require 'partials/footer.php'; ?>
+</body>
+</html>

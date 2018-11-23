@@ -19,5 +19,9 @@ film release date
 Filter by
 film title
 -->
+
+<main></main>
+
+<?php require 'partials/footer.php'; ?>
 </body>
 </html>
