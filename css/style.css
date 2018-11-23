@@ -173,6 +173,7 @@ section h3 {
 .film-staff-ratings div { width: 13em; }
 .film-cast-crew span,
 .film-staff-ratings span { float: right; }
+.film-staff-ratings .single { width: auto; }
 
 /* Film reviews */
 .film-reviews blockquote {

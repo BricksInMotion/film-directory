@@ -237,6 +237,9 @@ class Film {
     return $all_roles;
   }
 
+  /**
+   * Get the film's staff ratings.
+   */
   function get_staff_ratings() {
     require 'src/db-connect.php';
 
@@ -254,9 +257,9 @@ class Film {
     $raw_ratings = $stmt->fetchAll(PDO::FETCH_OBJ);
 
     // There are no ratings for this film
-    // TODO: Properly fill this in
     if (count($raw_ratings) === 0) {
       $indv = new stdClass();
+      $indv->class = 'single';
       $indv->category = '';
       $indv->rating = 'No ratings given';
 
@@ -286,6 +289,7 @@ class Film {
       // Get the negative length of the film ID for proper slicing
       $slice_end = -strlen($this->id);
       $review_code = substr($rating->id, 3, $slice_end);
+      $indv->class = '';
       $indv->category = $categories[$review_code];
       $indv->rating = $rating->rating;
       $final_ratings[] = $indv;
