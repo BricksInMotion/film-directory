@@ -1,6 +1,5 @@
 <?php
 $pageTitle = 'View Film';
-require_once 'src/db-connect.php';
 require_once 'partials/head.php';
 require_once 'partials/header.php';
 require_once 'src/common-utils.php';
@@ -11,7 +10,7 @@ require_once 'src/classes/Film.php';
 $film_id = escapeXSS($_GET['film_id']);
 $film = new Film($film_id);
 
-// Get out of her if the film doesn't exist
+// Get out of here if the film doesn't exist
 if ($film->get_film_exists() === false) {
   redirect_url('404.php');
 }

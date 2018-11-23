@@ -1,6 +1,5 @@
 <?php
 $pageTitle = 'View Director';
-require_once 'src/db-connect.php';
 require_once 'partials/head.php';
 require_once 'partials/header.php';
 require_once 'src/common-utils.php';
