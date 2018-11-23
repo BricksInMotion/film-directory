@@ -249,10 +249,10 @@ class Film {
     // TODO: Maybe change this to FETCH_ASSOC
     $ratings = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    var_dump($ratings);
 
     // There are no ratings
     // TODO: Properly define this
+    // var_dump($ratings);
     if (count($ratings) === 0) {
       // echo 'No ratings given';
     }

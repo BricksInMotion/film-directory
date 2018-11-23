@@ -1,4 +1,14 @@
 <?php
+/**
+ * Escape any characters that could facilitate an XSS attack vector.
+ *
+ * @param {string} $text - The raw string to be escaped.
+ * @return {string} The escaped string.
+ */
+function escapeXSS($text) {
+  return htmlentities(strip_tags(trim($text)));
+}
+
 function convert_bb_code($str) {
   $start_bb_tags = ['[b]', '[i]'];
   $start_html_tags = ['<strong>', '<em>'];

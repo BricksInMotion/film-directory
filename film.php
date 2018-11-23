@@ -3,11 +3,13 @@ $pageTitle = 'View Film';
 require_once 'src/db-connect.php';
 require_once 'partials/head.php';
 require_once 'partials/header.php';
-require_once 'src/classes/Film.php';
 require_once 'src/common_utils.php';
+require_once 'src/classes/Film.php';
 
-// TODO: XSS/invalid arg check
-$film = new Film($_GET['film_id']);
+
+// TODO: Invalid arg check
+$film_id = escapeXSS($_GET['film_id']);
+$film = new Film($film_id);
 $film_info = $film->get_film_info();
 $director = $film->get_director_info();
 ?>
