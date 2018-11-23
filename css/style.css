@@ -10,7 +10,8 @@
   --text-color-links: #f6f0f0;
   --text-color-links-border: #fff;
 }
-*, *::before, *::after { box-sizing:  border-box; }
+
+*, *::before, *::after { box-sizing: border-box; }
 html { min-width: 320px; }
 
 body {
@@ -18,9 +19,10 @@ body {
 
   display: flex;
   flex-direction: column;
+  height: 100vh;
 
   background-color: var(--primary-bg-color);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 17px;
   line-height: 1.6;
   font-weight: 400;
@@ -35,6 +37,7 @@ h1, h2, h3 { font-weight: 500; }
 h4, h5, h6 { font-weight: 300; }
 
 header, footer {
+  flex: none;
   background-color: var(--accent-color-one);
 }
 
@@ -73,6 +76,8 @@ blockquote {
   padding-left: 0.6em;
   border-left: 3px solid var(--text-color-header);
 }
+
+main { flex: 1 0 auto; }
 
 section {
   padding: 0.75em 4%;
@@ -161,8 +166,8 @@ section h3 {
 .film-critiques h3 { text-align: center; }
 
 /* Cast & Crew/Staff Ratings */
-.film-cast-crew div,
-.film-staff-ratings div { width: 14em; }
+.film-cast-crew div { width: 14em; }
+.film-staff-ratings div { width: 13em; }
 .film-cast-crew span,
 .film-staff-ratings span { float: right; }
 
