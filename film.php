@@ -79,7 +79,7 @@ $director = $film->get_director_info();
 
     <div class="film-honors">
       <h3>Honors</h3>
-      <?= $film->get_honors(); ?>
+      <span><?= $film->get_honors(); ?></span>
     </div>
 
     <div class="film-staff-ratings">
