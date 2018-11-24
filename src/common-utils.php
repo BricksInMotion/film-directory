@@ -42,3 +42,12 @@ function redirect_url($url) {
   header("Location: {$url}");
   exit;
 }
+
+function render_film_list($roles) {
+  $final = '<ul>';
+  foreach ($roles as $role) {
+    $final .= "<li><a href='film.php?film_id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small></li>";
+  }
+  $final .= '</ul>';
+  return $final;
+}
