@@ -18,15 +18,52 @@ if ($director->get_director_exists() === false) {
 <main>
   <section class="dir-info">
     <?php $director_info = $director->get_director_info(); ?>
-    <h2><?= $director_info->real_name; ?> <small>(<?= $director_info->user_name; ?>)</small></h2>
+    <h2>Filmography for <?= $director_info->real_name; ?> <small>(<?= $director_info->user_name; ?>)</small></h2>
   </section>
 
-  <section class="dir-filmography">
-    <h2>Filmography</h2>
+  <section class="role-director">
+    <?php
+      $role_director = $director->get_role_director();
+      $info = array_pop($role_director);
+    ?>
+    <h3>Director <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_director); ?>
+  </section>
 
-    <div class="role-director">
-      <h3>Director <small>( films)</small></h3>
-    </div>
+  <section class="role-writer">
+    <?php
+      $role_writer = $director->get_role_writer();
+      $info = array_pop($role_writer);
+    ?>
+    <h3>Writer <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_writer); ?>
+  </section>
+
+  <section class="role-animator">
+    <?php
+      $role_animator = $director->get_role_animator();
+      $info = array_pop($role_animator);
+    ?>
+    <h3>Animator <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_animator); ?>
+  </section>
+
+  <section class="role-editor">
+    <?php
+      $role_editor = $director->get_role_editor();
+      $info = array_pop($role_editor);
+    ?>
+    <h3>Editor <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_editor); ?>
+  </section>
+
+  <section class="role-thanks">
+    <?php
+      $role_thanks = $director->get_role_thanks();
+      $info = array_pop($role_thanks);
+    ?>
+    <h3>Special Thanks <small>(<?= count($role_thanks); ?> films)</small></h3>
+    <?= render_film_list($role_thanks); ?>
   </section>
 </main>
 
