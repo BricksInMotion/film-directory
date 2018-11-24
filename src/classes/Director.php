@@ -107,6 +107,24 @@ class Director {
   }
 
   /**
+   * Get the director's composer role.
+   *
+   * @return {stdClass}
+   */
+  function get_role_composer() {
+    return $this->get_role_basic('3');
+  }
+
+  /**
+   * Get the director's crew role.
+   *
+   * @return {stdClass}
+   */
+  function get_role_crew() {
+    return $this->get_role_basic('8');
+  }
+
+  /**
    * Get the director's director role.
    *
    * @return {stdClass}
@@ -125,12 +143,39 @@ class Director {
   }
 
   /**
+   * Get the director's sound editing role.
+   *
+   * @return {stdClass}
+   */
+  function get_role_sound() {
+    return $this->get_role_basic('7');
+  }
+
+  /**
    * Get the director's special thanks role.
    *
    * @return {stdClass}
    */
   function get_role_thanks() {
     return $this->get_role_basic('9');
+  }
+
+  /**
+   * Get the director's visual effects role.
+   *
+   * @return {stdClass}
+   */
+  function get_role_vfx() {
+    return $this->get_role_basic('6');
+  }
+
+  /**
+   * Get the director's voice actor role.
+   *
+   * @return {stdClass}
+   */
+  function get_role_voice() {
+    return $this->get_role_basic('10');
   }
 
   /**
