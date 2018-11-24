@@ -57,6 +57,33 @@ if ($director->get_director_exists() === false) {
     <?= render_film_list($role_animator); ?>
   </section>
 
+  <section class="role-composer">
+    <?php
+      $role_composer = $director->get_role_composer();
+      $info = array_pop($role_composer);
+    ?>
+    <h3>Composer <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_composer); ?>
+  </section>
+
+  <section class="role-sound">
+    <?php
+      $role_sound = $director->get_role_sound();
+      $info = array_pop($role_sound);
+    ?>
+    <h3>Sound Editing <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_sound); ?>
+  </section>
+
+  <section class="role-vfx">
+    <?php
+      $role_vfx = $director->get_role_vfx();
+      $info = array_pop($role_vfx);
+    ?>
+    <h3>Visual Effects <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_vfx); ?>
+  </section>
+
   <section class="role-editor">
     <?php
       $role_editor = $director->get_role_editor();
