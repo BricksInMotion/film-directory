@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS`films_users` (
 	`user_id` INT(10) UNSIGNED NOT NULL,
 	`user_name` VARCHAR(200) NOT NULL,
 	`real_name` VARCHAR(200) NULL DEFAULT NULL,
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+	INDEX `user_id` (`user_id`),
+	INDEX `real_name` (`real_name`)
 )
 COLLATE='utf8mb4_general_ci'
 ENGINE=MyISAM;
