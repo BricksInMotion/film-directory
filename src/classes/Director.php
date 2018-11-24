@@ -45,7 +45,7 @@ class Director {
     $total = count($results);
     $info = new stdClass();
     $info->total = $total;
-    $info->word = $total > 1 ? 'films' : 'film';
+    $info->word = $total != 1 ? 'films' : 'film';
     $results[] = $info;
     return $results;
   }
