@@ -62,7 +62,7 @@ if ($director->get_director_exists() === false) {
       $role_thanks = $director->get_role_thanks();
       $info = array_pop($role_thanks);
     ?>
-    <h3>Special Thanks <small>(<?= count($role_thanks); ?> films)</small></h3>
+    <h3>Special Thanks <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
     <?= render_film_list($role_thanks); ?>
   </section>
 </main>
