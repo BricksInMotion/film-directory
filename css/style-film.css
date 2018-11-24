@@ -1,0 +1,103 @@
+/* Film info */
+.film-info {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.film-info h2 {
+  margin-bottom: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0 ,0.4);
+}
+.film-info .details span { font-size: 0.93em; }
+
+/* Film thumbnail */
+.film-info > .thumbnail {
+  padding-right: 2em;
+  align-self: center;
+}
+.film-info > .thumbnail > img {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Automatically add commas after list-type info  */
+.film-genres .genre:not(:last-of-type)::after,
+.film-warnings .warning:not(:last-of-type)::after {
+  content: ", ";
+}
+
+ /* TODO: Add proper colors */
+.warning.moderate {
+  font-weight: 700;
+  color: #ffa500;
+}
+.warning.strong {
+  font-weight: 700;
+  color: #c87914;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0 ,0.5);
+}
+
+/* Film watch links */
+.film-links { }
+.film-links h3 { text-align: center; }
+.film-links > div { }
+
+.link {
+  display: block;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 0.92em;
+  text-align: center;
+}
+
+/* Film description */
+.film-desc { }
+
+/* Film critiques section */
+.film-critiques {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.film-critiques h3 { text-align: center; }
+
+/* Cast & Crew/Staff Ratings */
+.film-cast-crew div { width: 14em; }
+.film-staff-ratings div { width: 13em; }
+.film-cast-crew span,
+.film-staff-ratings span { float: right; }
+.film-staff-ratings .single { width: auto; }
+
+/* Film reviews */
+.film-reviews blockquote {
+  quotes: "“" "”";
+  line-height: 1.5;
+}
+
+.film-reviews blockquote::before {
+  content: open-quote;
+  font-family: var(--font-stack-header);
+  font-size: 2em;
+  font-weight: 700;
+  opacity: 0.35;
+}
+
+.film-reviews p {
+  margin: 0;
+  margin-top: -0.0em;
+  margin-left: 1em;
+  font-size: 0.93em;
+}
+
+@media (max-width: 768px) {
+  .film-links > div { width: 12.5em; }
+  .film-links h3 { text-align: center; }
+
+  .film-critiques {
+    flex-direction: column;
+    align-items: center;
+  }
+  .film-critiques > div { margin-bottom: 1em; }
+}

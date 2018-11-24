@@ -7,6 +7,13 @@
   <title><?= $pageTitle; ?> | Bricks in Motion Film Directory Archive</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700|Zilla+Slab:300,500">
   <link rel="stylesheet" href="css/style.css">
+  <?php
+    if (isset($pageStyles)):
+      foreach ($pageStyles as $css):
+        echo "<link rel='stylesheet' href='css/{$css}'>\n";
+      endforeach;
+    endif;
+    ?>
 </head>
 
 <body class="<?= str_replace(' ', '-', strtolower($pageTitle)); ?>">
