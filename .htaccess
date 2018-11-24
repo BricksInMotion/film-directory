@@ -1,0 +1,13 @@
+# Error handling
+ErrorDocument 403 /404.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /404.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  Options +FollowSymlinks -Indexes
+
+  # Prevent access to sensitive folders
+  RedirectMatch 404 /.login/?$
+  RedirectMatch 404 /src/?
+</IfModule>
