@@ -30,6 +30,15 @@ if ($director->get_director_exists() === false) {
     <?= render_film_list($role_director); ?>
   </section>
 
+  <section class="role-voice">
+    <?php
+      $role_voice = $director->get_role_voice();
+      $info = array_pop($role_voice);
+    ?>
+    <h3>Voice Actor <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_voice); ?>
+  </section>
+
   <section class="role-writer">
     <?php
       $role_writer = $director->get_role_writer();
@@ -55,6 +64,15 @@ if ($director->get_director_exists() === false) {
     ?>
     <h3>Editor <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
     <?= render_film_list($role_editor); ?>
+  </section>
+
+  <section class="role-crew">
+    <?php
+      $role_crew = $director->get_role_crew();
+      $info = array_pop($role_crew);
+    ?>
+    <h3>Crew <small>(<?= $info->total; ?> <?= $info->word; ?>)</small></h3>
+    <?= render_film_list($role_crew); ?>
   </section>
 
   <section class="role-thanks">
