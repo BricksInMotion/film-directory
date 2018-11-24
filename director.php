@@ -1,5 +1,6 @@
 <?php
 $pageTitle = 'View Director';
+$pageStyles = ['style-director.css'];
 require_once 'partials/head.php';
 require_once 'partials/header.php';
 require_once 'src/common-utils.php';
