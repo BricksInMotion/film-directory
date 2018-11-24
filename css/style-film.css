@@ -2,7 +2,6 @@
 .film-info {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   justify-content: space-evenly;
   align-items: baseline;
 }
@@ -94,6 +93,7 @@
 }
 
 @media (max-width: 768px) {
+  .film-info { justify-content: center; }
   .film-links > div { width: 12.5em; }
   .film-links h3 { text-align: center; }
 

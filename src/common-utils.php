@@ -54,3 +54,7 @@ function render_film_list($roles) {
   $final .= '</ul>';
   return $final;
 }
+
+function get_json($path) {
+  return json_decode(file_get_contents($path), false);
+}
