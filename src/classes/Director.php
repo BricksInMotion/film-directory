@@ -14,7 +14,7 @@ class Director {
    *
    * @return {stdClass}
    */
-  private function get_role_basic($role) {
+  private function get_role($role) {
     require 'src/db-connect.php';
 
     // $defined_roles = [
@@ -33,7 +33,8 @@ class Director {
     $stmt = $pdo->prepare('SELECT
     `films`.`id`,
     `films`.`title`,
-    YEAR(`films`.`date_create`) AS `year_released`
+    YEAR(`films`.`date_create`) AS `year_released`,
+    IF(`cast` = "", "", `cast`) AS `role`
     FROM `films_castcrew`
     INNER JOIN `films` ON `films`.`id` = `film_id`
     WHERE `films_castcrew`.`user_id`= ? AND `job` = ?
@@ -47,6 +48,7 @@ class Director {
       $info = new stdClass();
       $info->id = '0';
       $info->title = 'No films available';
+      $info->role = '';
       $info->year_released = 'N/A';
       $results[] = $info;
     }
@@ -103,7 +105,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_animator() {
-    return $this->get_role_basic('4');
+    return $this->get_role('4');
   }
 
   /**
@@ -112,7 +114,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_composer() {
-    return $this->get_role_basic('3');
+    return $this->get_role('3');
   }
 
   /**
@@ -121,7 +123,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_crew() {
-    return $this->get_role_basic('8');
+    return $this->get_role('8');
   }
 
   /**
@@ -130,7 +132,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_director() {
-    return $this->get_role_basic('1');
+    return $this->get_role('1');
   }
 
   /**
@@ -139,7 +141,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_editor() {
-    return $this->get_role_basic('5');
+    return $this->get_role('5');
   }
 
   /**
@@ -148,7 +150,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_sound() {
-    return $this->get_role_basic('7');
+    return $this->get_role('7');
   }
 
   /**
@@ -157,7 +159,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_thanks() {
-    return $this->get_role_basic('9');
+    return $this->get_role('9');
   }
 
   /**
@@ -166,7 +168,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_vfx() {
-    return $this->get_role_basic('6');
+    return $this->get_role('6');
   }
 
   /**
@@ -175,7 +177,7 @@ class Director {
    * @return {stdClass}
    */
   function get_role_voice() {
-    return $this->get_role_basic('10');
+    return $this->get_role('10');
   }
 
   /**
@@ -184,6 +186,6 @@ class Director {
    * @return {stdClass}
    */
   function get_role_writer() {
-    return $this->get_role_basic('2');
+    return $this->get_role('2');
   }
 }

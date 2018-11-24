@@ -19,7 +19,10 @@ if ($director->get_director_exists() === false) {
 <main>
   <section class="dir-info">
     <?php $director_info = $director->get_director_info(); ?>
-    <h2>Filmography for <?= $director_info->real_name; ?> <small>(<?= $director_info->user_name; ?>)</small></h2>
+    <h2>
+      <?= $director_info->real_name; ?> <small>(<?= $director_info->user_name; ?>)</small><br>
+      Filmography
+  </h2>
   </section>
 
   <section class="role-director">
