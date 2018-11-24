@@ -44,11 +44,11 @@ function redirect_url($url) {
 }
 
 function render_film_list($roles) {
-  $final = '<ul>';
+  $final = '<ul class ="role-list">';
   foreach ($roles as $role) {
     $final .= "<li>
     <a href='film.php?film_id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small><br>
-    <span class='role-single'>{$role->role}</span>
+    <div class='role-single'>{$role->role}</div>
     </li>";
   }
   $final .= '</ul>';
