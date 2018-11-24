@@ -1,5 +1,4 @@
 <?php
-
 class Director {
   public $id = 0;
 
@@ -10,7 +9,8 @@ class Director {
   /**
    * @private
    *
-   * Helper method to pull info for roles with a common structure.
+   * Helper method to pull info for roles
+   * with a common structure.
    *
    * @return {stdClass}
    */
