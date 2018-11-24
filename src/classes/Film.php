@@ -13,8 +13,11 @@ class Film {
    * @return {bool}
    */
   function get_film_exists() {
-    require 'src/db-connect.php';
+    // Short circuit the lookup if the ID is zero
+    // Zero is being used to indicate an unknown film
+    if ($this->id === 0) return false;
 
+    require 'src/db-connect.php';
     $stmt = $pdo->prepare('SELECT
     1
     FROM `films`
