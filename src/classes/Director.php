@@ -41,8 +41,17 @@ class Director {
     $stmt->execute([$this->id, $role]);
     $results = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    // Add query info to returned results
+    // Handle a lack of films for this role
     $total = count($results);
+    if ($total === 0) {
+      $info = new stdClass();
+      $info->id = '0';
+      $info->title = 'No films available';
+      $info->year_released = 'N/A';
+      $results[] = $info;
+    }
+
+    // Add query info to returned results
     $info = new stdClass();
     $info->total = $total;
     $info->word = $total != 1 ? 'films' : 'film';
