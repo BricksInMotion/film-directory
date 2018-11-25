@@ -8,10 +8,8 @@
   /* --text-color-header: #d1bad1; */
   --text-color-header: #eee1e1;
   --text-color-links: #f6f0f0;
-  --text-color-links-border: #fff;
-
-  --font-stack-body: "Raleway", sans-serif;
-  --font-stack-header: "Zilla Slab", var(--font-stack-body);
+  --font-stack-body: "Montserrat", sans-serif;
+  --font-stack-header: "Merriweather Sans", var(--font-stack-body);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -36,8 +34,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-stack-header);
   color: var(--text-color-header);
 }
-h1, h2, h3 { font-weight: 500; }
-h4, h5, h6 { font-weight: 300; }
+h1, h2, h3 { font-weight: 700; }
+h4, h5, h6 { font-weight: 500; }
 
 header, footer {
   flex: none;
@@ -53,12 +51,14 @@ header {
 header h1 {
   margin-top: 0;
   margin-bottom: 0;
+  color: var(--primary-bg-color);
 }
 
 footer {
   padding: 1em 0.5em;
   text-align: center;
   font-size: 0.87em;
+  color: var(--primary-bg-color);
 }
 footer div { margin-bottom: 0.5em; }
 
