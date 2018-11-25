@@ -10,9 +10,10 @@ class Search {
     `films`.`id`,
     `films`.`title`
     FROM `films`
-    WHERE `films`.`title` LIKE "%?%"
+    WHERE `films`.`title` LIKE CONCAT("%", ?, "%")
     ORDER BY `films`.`id` ASC');
     $stmt->execute([$query]);
     $films = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $films;
   }
 }
