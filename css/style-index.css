@@ -5,6 +5,12 @@
   justify-content: center;
 }
 
+.area-filter-year {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .btn-filter-year {
   padding: 0.5em 0.75em;
   margin: 0.5em 0.5em;
