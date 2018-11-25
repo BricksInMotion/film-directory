@@ -1,14 +1,10 @@
 <?php
-
-require '../common-utils.php';
-
-
 class Search {
   /**
    * Search for a film by title.
    */
   static function search_by_title($query) {
-    $q = escapeXSS($query);
+    require_once 'src/db-connect.php';
 
     $stmt = $pdo->prepare('SELECT
     `films`.`id`,
@@ -16,7 +12,7 @@ class Search {
     FROM `films`
     WHERE `films`.`title` LIKE "%?%"
     ORDER BY `films`.`id` ASC');
-    $stmt->execute([$q]);
+    $stmt->execute([$query]);
     $films = $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 }
