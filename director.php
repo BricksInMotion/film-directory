@@ -17,6 +17,8 @@ if ($director->get_director_exists() === false) {
 ?>
 
 <main>
+  <?php require 'partials/navi.html'; ?>
+
   <section class="dir-info">
     <?php $director_info = $director->get_director_info(); ?>
     <h2>

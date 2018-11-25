@@ -21,6 +21,8 @@ $director = $film->get_director_info();
 ?>
 
 <main>
+  <?php require 'partials/navi.html'; ?>
+
   <section class="film-info">
     <div class="thumbnail">
       <img class="film-thumbnail" alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">

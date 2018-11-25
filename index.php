@@ -29,6 +29,8 @@ film title
 -->
 
 <main>
+  <?php require 'partials/navi.html'; ?>
+
   <section>
    <h2>View Films</h2>
    <h3>View films by year</h3>

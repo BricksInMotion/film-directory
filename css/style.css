@@ -58,6 +58,18 @@ header h1 {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+nav a {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+
 footer {
   padding: 1em 0.5em;
   text-align: center;

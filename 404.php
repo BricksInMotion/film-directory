@@ -5,6 +5,8 @@ require_once 'partials/header.php';
 ?>
 
 <main>
+  <?php require 'partials/navi.html'; ?>
+
   <section class="film-info" style="height: 100%;">
     <div class="details" style="text-align: center;">
       <h2>Item not found</h2>

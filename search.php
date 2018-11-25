@@ -6,6 +6,8 @@
 ?>
 
 <main>
+  <?php require 'partials/navi.html'; ?>
+
   <section>
     <h2>Search by film title</h2>
     <label>
