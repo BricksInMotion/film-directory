@@ -27,6 +27,15 @@ film title
   <section>
    <h2>View Films</h2>
    <h3>View films by year</h3>
+    <div class="area-filter-year">
+  <?php
+    foreach ($index::get_film_years() as $year):
+      echo "<span class='btn-filter-year' data-year='{$year}'>{$year}</span>";
+    endforeach;
+  ?>
+  </div>
+  </section>
+
   <section class="area-film-list">
     <h2 class="film-year"></h2>
     <div></div>
@@ -34,6 +43,6 @@ film title
 </main>
 
 <?php require 'partials/footer.php'; ?>
-  <script src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
