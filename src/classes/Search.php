@@ -11,7 +11,7 @@ class Search {
     `films`.`title`
     FROM `films`
     WHERE `films`.`title` LIKE CONCAT("%", ?, "%")
-    ORDER BY `films`.`id` ASC');
+    ORDER BY `films`.`title` ASC');
     $stmt->execute([$query]);
     $films = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $films;

@@ -12,10 +12,13 @@ input {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   font-family: var(--font-stack-body);
-  font-size: 1.75em;
+  font-size: 1.6em;
   text-align: center;
 }
 
 .search-results {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

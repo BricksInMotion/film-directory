@@ -15,8 +15,7 @@ qSearchQuery.addEventListener("keyup", function() {
     })
     .then(r => r.text())
     .then(r => {
-      console.log(r);
-      qSearchResults.textContent = r;
+      qSearchResults.innerHTML = r;
     });
   }(this));
 });
