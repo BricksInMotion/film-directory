@@ -96,7 +96,18 @@ class Director {
     WHERE `films_users`.`user_id`= ?
     LIMIT 1');
     $stmt->execute([$this->id]);
-    return $stmt->fetch(PDO::FETCH_OBJ);
+    $info = $stmt->fetch(PDO::FETCH_OBJ);
+
+    // The director id that submitted this film doesn't exist
+    // Provide dummy info that indicates such
+    if ($info === false) {
+      $fake_info = new stdClass();
+      $fake_info->user_id = '0';
+      $fake_info->user_name = 'N/A';
+      $fake_info->real_name = 'Unknown';
+      return $fake_info;
+    }
+    return $info;
   }
 
   /**
