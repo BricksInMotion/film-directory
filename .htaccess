@@ -7,6 +7,12 @@ ErrorDocument 500 /404.php
   RewriteEngine On
   Options +FollowSymlinks -Indexes
 
+  # RewriteRule ^([a-z]+)\/?$ $1.php [N,C]
+
+  # Mimic original directory URLs (hopefully)
+  # RewriteRule ^films/view/([0-9]*) /film.php?film_id=$1 [QSA,NC,L]
+  # RewriteRule ^films/view/([0-9]*)/$ /film.php?film_id=$1 [QSA,NC,L]
+
   # Prevent access to sensitive folders
   RedirectMatch 404 /.login/?$
   RedirectMatch 404 /src/?

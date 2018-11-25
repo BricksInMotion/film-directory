@@ -1,5 +1,7 @@
 <?php
-  $db_login = json_decode(file_get_contents('.login/db.json'), false);
+  require_once 'src/common-utils.php';
+
+  $db_login = get_json('.login/db.json');
   $dsn = "mysql:host={$db_login->host};dbname={$db_login->db};charset={$db_login->charset}";
 
   $options = [
