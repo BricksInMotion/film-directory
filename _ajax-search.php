@@ -2,7 +2,10 @@
 require_once 'src/common-utils.php';
 require_once 'src/classes/Search.php';
 
-$BLACKLIST = ['', 'a', 'an', 'the', 'of', 'for'];
+$BLACKLIST = ['', 'a', 'an', 'the', 'of', 'for',
+              '.', ',', '?', '!', ';', ':', '"', "'",
+              '*', '^', '&', '%', '$', '#', '@',
+              '(', ')', '[', ']', '{', '}'];
 
 
 function no_results_found() {
