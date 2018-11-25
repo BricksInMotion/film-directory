@@ -6,7 +6,12 @@ require_once 'partials/header.php';
 require_once 'src/common-utils.php';
 require_once 'src/classes/Index.php';
 
-
+// Always start a new session on page reload
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+} else {
+  $_SESSION = [];
+}
 $index = new Index;
 ?>
 

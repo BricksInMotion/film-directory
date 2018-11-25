@@ -13,7 +13,7 @@ qAreaYears.addEventListener("click", function(e) {
     // If the selected year is different
     // from the currently loaded year, RESET
     if (year !== current_year) {
-      qFilmListYear.textContent = year;
+      qFilmListYear.textContent = `Year ${year}`;
       qAreaFilmList.innerHTML = "";
       current_year = year;
     }

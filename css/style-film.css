@@ -17,9 +17,6 @@
   padding-right: 2em;
   align-self: center;
 }
-.film-info > .thumbnail > img {
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-}
 
 /* Automatically add commas after list-type info  */
 .film-genres .genre:not(:last-of-type)::after,

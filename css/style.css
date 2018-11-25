@@ -94,6 +94,10 @@ section h3 {
   text-shadow: 1px 1px 5px rgba(0, 0, 0 ,0.3);
 }
 
+.film-thumbnail {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 768px) {
   header { align-items: center; }
   blockquote { margin-left: 0.5em; }
