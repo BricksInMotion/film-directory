@@ -27,6 +27,8 @@ qAreaYears.addEventListener("click", function(e) {
     .then(r => {
       console.log(r);
       qAreaFilmList.insertAdjacentHTML("beforeend", r);
+      qAreaFilmList.scrollIntoView({behavior: "smooth"});
+      // TODO: Add infinite scroll loading
     });
   }
 });

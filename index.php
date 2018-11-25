@@ -32,8 +32,12 @@ film title
   <?php require 'partials/navi.html'; ?>
 
   <section>
-   <h2>View Films</h2>
-   <h3>View films by year</h3>
+    <p>Welcome to the <a href="#">Bricks in Motion</a> film directory archive! Here, you will find an archive of all the films submitted to our former directory. Feel free to explore our collection!</p>
+    <p>Is there a specific film you're wanting? <a href="search.php">Search for it</a>!</p>
+  </section>
+
+  <section>
+   <h2>View films by year</h2>
     <div class="area-filter-year">
   <?php
     foreach ($index::get_film_years() as $year):
