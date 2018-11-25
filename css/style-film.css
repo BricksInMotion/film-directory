@@ -23,15 +23,14 @@
   content: ", ";
 }
 
- /* TODO: Add proper colors */
+ /* TODO: moderate needs a shadow or new color */
 .warning.moderate {
   font-weight: 700;
-  color: #ffa500;
+  color: #fdb035;
 }
 .warning.strong {
   font-weight: 700;
-  color: #c87914;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0 ,0.5);
+  color: #df3e5d;
 }
 
 /* Film watch links */

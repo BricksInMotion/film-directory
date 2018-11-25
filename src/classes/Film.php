@@ -169,7 +169,7 @@ class Film {
   function get_warnings() {
     require 'src/db-connect.php';
 
-    $stmt = $pdo->prepare('SELECT `warn_sex`, `warn_lang`, `warn_vio`
+    $stmt = $pdo->prepare('SELECT `warn_lang`, `warn_vio`, `warn_sex`
     FROM `films`
     WHERE `id`= ?');
     $stmt->execute([$this->id]);
