@@ -6,6 +6,7 @@ require_once 'src/classes/Index.php';
 function render_films($films_list) {
   $html = '';
 
+  // TODO: Add creator name
   foreach ($films_list as $film) {
     $html .= "<div class='film-{$film->id}'>
       <img class='film-thumbnail' src='film-images/{$film->thumbnail}'>
