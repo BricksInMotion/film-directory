@@ -1,18 +1,24 @@
 <?php
 require_once 'src/common-utils.php';
 require_once 'src/classes/Index.php';
+require_once 'src/classes/Film.php';
 
 
 function render_films($films_list) {
   $html = '';
 
-  // TODO: Add creator name
-  foreach ($films_list as $film) {
-    $html .= "<div class='film-{$film->id}'>
-      <img class='film-thumbnail' src='film-images/{$film->thumbnail}'>
-      <a href='film.php?film_id={$film->id}'>{$film->title}</a>
-      <span>{$film->release_date}</span>
-    </div>";
+  foreach ($films_list as $v) {
+    // Pull the director's name.
+    //  We can't do this when pulling the year search results
+    $director = (new Film($v->id))->get_director_info();
+
+    $raw_html = file_get_contents('partials/film-index.html');
+    $new_html = str_replace('|film-id|', $v->id, $raw_html);
+    $new_html = str_replace('|film-title|', $v->title, $new_html);
+    $new_html = str_replace('|film-thumbnail|', $v->thumbnail, $new_html);
+    $new_html = str_replace('|film-release|', format_film_release_date($v->release_date), $new_html);
+    $new_html = str_replace('|director|', $director->real_name, $new_html);
+    $html .= $new_html;
   }
 
   return $html;

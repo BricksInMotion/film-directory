@@ -114,9 +114,7 @@ section:nth-child(odd) {
   /* background-color: var(--accent-color-two); */
 }
 
-section h3 {
-  margin: 0;
-}
+section h3 { margin: 0; }
 
 .film-thumbnail {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
