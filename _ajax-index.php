@@ -7,7 +7,7 @@ $index = new Index;
 $ajax_data = get_json('php://input');
 
 // Get the next chunk of film data
-$index->get_films_by_year_chunks($ajax_data->year);
-
-// $film_data = ['films' => []];
-// echo json_encode($film_data);
+$film_data = $index->get_films_by_year_chunks($ajax_data->year);
+$film_html = render_films($film_data);
+echo $film_html;
+exit;
