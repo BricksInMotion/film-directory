@@ -15,7 +15,7 @@ The purpose of this project is to provide a modern browsing experience for the d
 - Firefox (latest)
 - Chrome (latest)
 - IE 11 (partial)
-- MS Edge 17 (buggy)
+- MS Edge 14 (buggy)
 - macOS Safari (untested)
 - Any mobile browser (untested)
 
