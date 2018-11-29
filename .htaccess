@@ -10,6 +10,7 @@ ErrorDocument 500 /404.php
   # RewriteRule ^([a-z]+)\/?$ $1.php [N,C]
 
   # Mimic original directory URLs (hopefully)
+  # TODO: Enable these
   # RewriteRule ^films/view/([0-9]*) /film.php?film_id=$1 [QSA,NC,L]
   # RewriteRule ^films/view/([0-9]*)/$ /film.php?film_id=$1 [QSA,NC,L]
 
@@ -17,3 +18,5 @@ ErrorDocument 500 /404.php
   RedirectMatch 404 /.login/?$
   RedirectMatch 404 /src/?
 </IfModule>
+
+# TODO: Add caching, compressing, expires
