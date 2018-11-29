@@ -3,3 +3,5 @@
   <div>LEGO is a trademark of the LEGO Group, which does not sponsor, authorize or endorse this web site.</div>
   <div><a href="http://www.bricksinmotion.com/forums/topic/25304/bricks-in-motion-staff-list/">Site Credits</a> | <a href="http://www.bricksinmotion.com/forums/topic/25303/bricks-in-motion-privacy-policy/">Privacy Policy</a></div>
 </footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=fetch,Element.prototype.matches"></script>
