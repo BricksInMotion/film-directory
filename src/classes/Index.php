@@ -76,10 +76,10 @@ class Index {
     require 'src/db-connect.php';
 
     // These are films that have no proper release date
-    if ($year === 'Unknown') {
+    if ($year === '1900') {
       // We've not loaded this year before, set a custom start id
       if ($year !== $this->current_year) {
-        $this->start_id = 0;
+        $this->start_id = 1;
         $this->current_year = $year;
       }
 
