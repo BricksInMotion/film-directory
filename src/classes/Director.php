@@ -17,18 +17,17 @@ class Director {
   private function get_role($role) {
     require 'src/db-connect.php';
 
-    // $defined_roles = [
-    //   'director' => '1',
-    //   'writer'   => '2',
-    //   'composer' => '3',
-    //   'animator' => '4',
-    //   'editor'   => '5',
-    //   'vfx'      => '6',
-    //   'sound'    => '7',
-    //   'other'    => '8',
-    //   'thanks'   => '9',
-    //   'va'       => '10'
-    // ];
+    // The defined roles and their numeric code
+    // 'director': '1'
+    // 'writer'  : '2'
+    // 'composer': '3'
+    // 'animator': '4'
+    // 'editor'  : '5'
+    // 'vfx'     : '6'
+    // 'sound'   : '7'
+    // 'other'   : '8'
+    // 'thanks'  : '9'
+    // 'va'      : '10'
 
     $stmt = $pdo->prepare('SELECT
     `films`.`id`,

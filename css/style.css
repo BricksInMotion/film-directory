@@ -16,17 +16,20 @@ html { min-width: 320px; }
 
 body {
   margin: 0;
+  padding: 0;
 
   display: flex;
   flex-direction: column;
   height: 100vh;
 
   background-color: var(--primary-bg-color);
+  color: var(--text-color-body);
+
+  font-family: sans-serif;
   font-family: var(--font-stack-body);
   font-size: 17px;
   line-height: 1.6;
   font-weight: 400;
-  color: var(--text-color-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -118,7 +121,7 @@ blockquote {
 
 main {
   flex: 1 0 auto;
-  width: 92%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
 }

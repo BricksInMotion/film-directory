@@ -15,19 +15,6 @@ if (session_status() === PHP_SESSION_NONE) {
 $index = new Index;
 ?>
 
-<!--
-Display
-film title
-film director
-film release date
-
-Order by
-film release date
-
-Filter by
-film title
--->
-
 <main>
   <?php require 'partials/navi.html'; ?>
 

@@ -1,4 +1,4 @@
--- Create a new table to store directo info
+-- Create a new table to store director info
 CREATE TABLE IF NOT EXISTS`films_users` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`user_id` INT(10) UNSIGNED NOT NULL,
@@ -13,8 +13,7 @@ ENGINE=MyISAM;
 
 -- Using data from the forums_users table, populate the new table
 INSERT INTO `films_users` (`user_id`, `user_name`, `real_name`)
-SELECT
-	`id`, `username`, `realname`
+SELECT `id`, `username`, `realname`
 FROM `forums_users`;
 
 -- Finally, if a user has no real/director's name defined,
