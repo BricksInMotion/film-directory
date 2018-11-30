@@ -38,7 +38,7 @@ class Film {
     `title`,
     `user_desc` AS `desc`,
     `img_thumb` AS `thumbnail`,
-    `lenth` AS `length`,
+    `length`,
     `date_create` AS `release_date`
     FROM `films`
     WHERE `films`.`id`= ?
@@ -154,8 +154,8 @@ class Film {
     require 'src/db-connect.php';
 
     $stmt = $pdo->prepare('SELECT `genre`
-    FROM `genres`
-    INNER JOIN `films_genre` ON `genres`.`id` = `films_genre`.`genres_id`
+    FROM `films_all_genres`
+    INNER JOIN `films_genre` ON `films_all_genres`.`id` = `films_genre`.`genres_id`
     WHERE `films_genre`.`film_id` = ?');
     $stmt->execute([$this->id]);
     return $stmt->fetchAll(PDO::FETCH_OBJ);
