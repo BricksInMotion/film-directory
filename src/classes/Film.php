@@ -177,7 +177,7 @@ class Film {
 
     // Filter out any columns that indicate no warning
     $warnings = array_filter($warnings, function($v) {
-      return $v !== 0;
+      return $v !== '0';
     });
 
     // This film has no warnings
@@ -197,9 +197,9 @@ class Film {
       'warn_sex' => 'sexual content'
     ];
     $severity = [
-      1 => 'mild',
-      2 => 'moderate',
-      3 => 'strong'
+      '1' => 'mild',
+      '2' => 'moderate',
+      '3' => 'strong'
     ];
 
     // Collect the film's warnings
