@@ -1,5 +1,5 @@
 -- Create a new table to store director info
-CREATE TABLE IF NOT EXISTS`films_users` (
+CREATE TABLE IF NOT EXISTS `films_users` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`user_id` INT(10) UNSIGNED NOT NULL,
 	`user_name` VARCHAR(200) NOT NULL,
