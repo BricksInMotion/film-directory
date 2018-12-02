@@ -19,7 +19,7 @@ function loadFilms(year) {
   // If the selected year is different
   // from the currently loaded year, RESET ALL THE FILMS
   if (year !== currentYear) {
-    qFilmListYear.textContent = "Year " + year;
+    qFilmListYear.textContent = "Year " + (year === "1900" ? "Unknown" : year);
     qAreaFilmList.innerHTML = "";
     currentYear = year;
   }

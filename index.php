@@ -15,7 +15,7 @@ $index = new Index;
   <?php require 'partials/navi.html'; ?>
 
   <section>
-    <p>Welcome to the <a href="http://www.bricksinmotion.com">Bricks in Motion</a> film directory archive! Here, you will find an archive of all the films submitted to our former directory. Feel free to explore our collection!</p>
+    <p>Welcome to the <a href="http://www.bricksinmotion.com">Bricks in Motion</a> film directory archive! Here, you will find an archive of all the brickfilms submitted to our former directory. Feel free to explore our collection!</p>
     <p>Is there a specific film you're wanting? <a href="search.php">Search for it</a>!</p>
   </section>
 

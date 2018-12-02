@@ -140,6 +140,7 @@ section h3 { margin: 0; }
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 
   /* Styling for when images are broken */
+  /* https://bitsofco.de/styling-broken-images/ */
   font-family: var(--font-stack-body);
   text-align: center;
   font-size: 0.85em;
