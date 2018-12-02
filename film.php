@@ -25,7 +25,7 @@ $director = $film->get_director_info();
 
   <section class="film-info">
     <div class="thumbnail">
-      <img class="film-thumbnail" alt="Film thumbnail" src="film-images/<?= $film_info->thumbnail; ?>">
+      <img class="film-thumbnail" alt="Thumbnail for  <?= htmlspecialchars($film_info->title); ?>" src="film-images/<?= $film_info->thumbnail; ?>">
     </div>
 
     <div class="details">

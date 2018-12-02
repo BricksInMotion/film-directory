@@ -14,7 +14,7 @@ function render_films($films_list) {
 
     $raw_html = file_get_contents('partials/film-index.html');
     $new_html = str_replace('|film-id|', $v->id, $raw_html);
-    $new_html = str_replace('|film-title|', $v->title, $new_html);
+    $new_html = str_replace('|film-title|', htmlspecialchars($v->title), $new_html);
     $new_html = str_replace('|film-thumbnail|', $v->thumbnail, $new_html);
     $new_html = str_replace('|film-release|', format_film_release_date($v->release_date), $new_html);
     $new_html = str_replace('|director|', $director->real_name, $new_html);
