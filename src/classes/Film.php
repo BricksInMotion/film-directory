@@ -48,6 +48,23 @@ class Film {
   }
 
   /**
+   * Get the film's corresponding forum topic.
+   *
+   * @return {stdClass|False}
+   */
+  function get_forum_topic() {
+    require 'src/db-connect.php';
+
+    $stmt = $pdo->prepare('SELECT
+    `topic_id`
+    FROM `films_topics`
+    WHERE `films_topics`.`film_id` = ?
+    LIMIT 1');
+    $stmt->execute([$this->id]);
+    return $stmt->fetch(PDO::FETCH_OBJ);
+  }
+
+  /**
    * Get the film director's info.
    *
    * @return {stdClass}

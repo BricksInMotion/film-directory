@@ -53,6 +53,14 @@ $director = $film->get_director_info();
         endforeach;
         ?>
       </div>
+      <?php
+        $forum_topic = $film->get_forum_topic();
+        if ($forum_topic !== false):
+      ?>
+      <span>
+        <strong><a href="http://www.bricksinmotion.com/forums/topic/<?= $forum_topic->topic_id; ?>/">Forum Topic</a></strong>
+        </span>
+      <?php endif; ?>
     </div>
 
     <section class="film-links">
