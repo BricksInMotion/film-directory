@@ -12,17 +12,11 @@ function render_films($films_list) {
     //  We can't do this when pulling the year search results
     $director = (new Film($v->id))->get_director_info();
 
-    // Rewrite the release date if it is unknown
-    $release_date = 'Unknown';
-    if (strpos($v->release_date, '1900') !== 0) {
-      $release_date = format_film_release_date($v->release_date);
-    }
-
     $raw_html = file_get_contents('partials/film-index.html');
     $new_html = str_replace('|film-id|', $v->id, $raw_html);
     $new_html = str_replace('|film-title|', htmlspecialchars($v->title), $new_html);
     $new_html = str_replace('|film-thumbnail|', $v->thumbnail, $new_html);
-    $new_html = str_replace('|film-release|', $release_date, $new_html);
+    $new_html = str_replace('|film-release|', format_film_release_date($v->release_date), $new_html);
     $new_html = str_replace('|director|', $director->real_name, $new_html);
     $html .= $new_html;
   }

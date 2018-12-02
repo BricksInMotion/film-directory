@@ -34,6 +34,11 @@ function format_film_runtime($seconds) {
 }
 
 function format_film_release_date($date) {
+  // This film has an unknown release date
+  if (strpos($date, '1900') === 0) {
+    return 'Unknown';
+  }
+
   $dt = new DateTime($date);
   return $dt->format('F jS, Y');
 }
