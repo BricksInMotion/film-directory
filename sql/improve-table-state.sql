@@ -2,8 +2,8 @@
 RENAME TABLE `genres` TO `films_all_genres`;
 
 -- Remove the primary genre indicator (it is not respected)
--- ALTER TABLE `films_genre`
---   DROP COLUMN `is_primary`;
+ALTER TABLE `films_genre`
+  DROP COLUMN `is_primary`;
 
 -- Remove unused tables
 DROP TABLE `films_tags`;
@@ -36,7 +36,7 @@ ALTER TABLE `films`
   DROP COLUMN `rate_music`,
   DROP COLUMN `warn_desc`,
   DROP COLUMN `date_edit`,
-  -- DROP COLUMN `keywords`,
+  DROP COLUMN `keywords`,
   DROP COLUMN `edit`;
 
 -- Decrease the film length column size to be sensible
