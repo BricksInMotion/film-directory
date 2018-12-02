@@ -4,7 +4,7 @@ session_start();
 class Index {
   private $start_id;
   private $current_year;
-  private $chunk_size = 4;
+  private $chunk_size = 9;
   private $total_films = 0;
 
   function __construct() {
