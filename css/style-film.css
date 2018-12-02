@@ -58,12 +58,20 @@
 .film-critiques h3 { text-align: center; }
 
 /* Cast & Crew/Staff Ratings */
-/* TODO: cast-crew width method is not going to work... */
-/* example: film #6243, #7207 */
-.film-cast-crew div { width: 14em; }
+/* TODO: cast-crew width needs work */
+/* example: film #6243 */
+.film-cast-crew {
+  /* flex-basis: 30%;
+  flex-basis: 52%; */
+  flex: 0.5 0.3 32%;
+}
+/* .film-cast-crew div { width: 14em; } */
+
 .film-staff-ratings div { width: 13em; }
+
 .film-cast-crew span,
 .film-staff-ratings span { float: right; }
+
 .film-staff-ratings .single { width: auto; }
 
 /* Film reviews */
