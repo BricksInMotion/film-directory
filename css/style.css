@@ -134,7 +134,16 @@ section h2 { margin: 0; }
 section h3 { margin: 0; }
 
 .film-thumbnail {
+  display: block;
+  padding: 0.5em;
+
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+
+  /* Styling for when images are broken */
+  font-family: var(--font-stack-body);
+  text-align: center;
+  font-size: 0.85em;
+  background-color: var(--primary-bg-color);
 }
 
 @media (max-width: 768px) {
