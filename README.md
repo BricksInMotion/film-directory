@@ -1,23 +1,13 @@
 # BiM Film Directory Archive
-> TODO
+> An archive for the Bricks in Motion film directory 
 
 ## Brief
 
-[Bricks in Motion](http://www.bricksinmotion.com/) is a friendly filmmaking community devoted to the art of stop-motion animation. [Since 2009](http://www.bricksinmotion.com/forums/post/45237/), BiM has kept a film directory where brickfilm animators can submit their films. After running for nearly 10 years, the directory had become a logical mess and a nightmare to maintain and bug fix, yet remained popular and used daily.
+[Bricks in Motion](http://www.bricksinmotion.com/) is a friendly filmmaking community devoted to the art of stop-motion animation. [Since 2009](http://www.bricksinmotion.com/forums/post/45237/), BiM has kept a film directory where brickfilm animators can submit their films. However, after running for nearly 10 years, the directory has become a logical mess and a nightmare to maintain and bug fix, yet remains popular and receives film submissions daily.
 
-As part of a larger forum upgrade, the directory become incompatible on a technical level, but the submitted films needed to be preserved for posterity purposes.
+As part of a larger forum upgrade, the directory became incompatible on a technical level due to a deep integration with the original forum software, but the submitted films were desired to be preserved for posterity purposes.
 
-The purpose of this project is to provide a modern browsing experience for the directory while using the original database structure, making only slight improvements when necessary.
-
-## Browser support
-
-- MS Edge 18+
-- Firefox (latest)
-- Chrome (latest)
-- IE 11 (partial)
-- MS Edge 14-17 (buggy)
-- macOS Safari (untested)
-- Any mobile browser (untested)
+In that light, the purpose of this project is to provide a modern browsing experience for the BiM film directory using the original database structure, making structure/design improvements when deemed helpful.
 
 ## License
 
