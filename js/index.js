@@ -53,6 +53,7 @@ qAreaYears.addEventListener("click", function(e) {
     // Only react if we are loading a different year
     if (year !== currentYear) {
       loadFilms(year);
+      qAreaFilmList.scrollIntoView();
     }
   }
 });

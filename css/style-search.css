@@ -8,6 +8,7 @@ input {
   padding: 0.5em 0.25em;
 
   border: none;
+  border-radius: 0;
 
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
@@ -15,10 +16,26 @@ input {
   font-size: 1.6em;
   text-align: center;
 }
+input:focus { box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2); }
 
 .search-results {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.search-results > div {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+@media (max-width: 768px) {
+  input { font-size: 1.3rem; }
+
+  .search-results > div {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+  }
 }

@@ -41,6 +41,7 @@ $index = new Index;
 </main>
 
 <?php require 'partials/footer.php'; ?>
+<script src="js/on-resize.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
