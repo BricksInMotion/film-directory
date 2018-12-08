@@ -59,7 +59,7 @@ $director = $film->get_director_info();
       ?>
       <span>
         <strong><a href="http://www.bricksinmotion.com/forums/topic/<?= $forum_topic->topic_id; ?>/">Forum Topic</a></strong>
-        </span>
+      </span>
       <?php endif; ?>
     </div>
 
