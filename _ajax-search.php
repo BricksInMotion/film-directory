@@ -31,8 +31,8 @@ function render_search_results($results) {
 // Search for the film
 $ajax_data = escape_xss(get_json('php://input')->query);
 
-// We are not searching these huge queries
-if (in_array($ajax_data, $BLACKLIST)) {
+// We are not searching these huge/silly queries
+if (is_empty($ajax_data) || in_array($ajax_data, $BLACKLIST)) {
   echo no_results_found();
   exit;
 }

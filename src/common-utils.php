@@ -12,6 +12,15 @@ function escape_xss($text) {
   return htmlentities(strip_tags(trim($text)));
 }
 
+/**
+ * Check if some text is empty.
+ *
+ * @param {string} $text
+ * @return {boolean} true if empty, false otherwise.
+ */
+function is_empty($text) {
+  return (bool) preg_match('/^\s$/', escape_xss($text)) === false;
+}
 
 function convert_bb_code($text) {
   $start_bb_tags = ['[b]', '[i]'];
