@@ -85,10 +85,16 @@ $director = $film->get_director_info();
       <h3>Cast &amp; Crew</h3>
       <?php
         foreach ($film->get_cast_crew() as $job):
+          // Break up the crew name for people with multiple roles
+          $job_crewname = str_replace('/', '<br>', $job->crewname, $count);
           echo "<div>
             <a href='director.php?director_id={$job->cc_user_id}'>{$job->name}</a>
-            <span>{$job->crewname}</span>
+            <span class='crewname'>{$job_crewname}</span>
           </div>";
+
+          // For every line we had to break, shift the next role down
+          // to keep everything aligned
+          echo str_repeat('<br>', $count);
         endforeach;
         ?>
     </div>
