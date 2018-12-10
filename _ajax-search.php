@@ -9,11 +9,9 @@ $BLACKLIST = [
   '(', ')', '[', ']', '{', '}'
 ];
 
-
 function no_results_found() {
   return file_get_contents('partials/search-results-none.html');
 }
-
 
 function render_search_results($results) {
   // There were no search results
@@ -31,7 +29,7 @@ function render_search_results($results) {
 }
 
 // Search for the film
-$ajax_data = escapeXSS(get_json('php://input')->query);
+$ajax_data = escape_xss(get_json('php://input')->query);
 
 // We are not searching these huge queries
 if (in_array($ajax_data, $BLACKLIST)) {

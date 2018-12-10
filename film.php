@@ -8,7 +8,7 @@ require_once 'src/common-utils.php';
 require_once 'src/classes/Film.php';
 
 
-$film_id = escapeXSS($_GET['film_id']);
+$film_id = escape_xss($_GET['film_id']);
 $film = new Film($film_id);
 
 // Get out of here if the film doesn't exist

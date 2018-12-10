@@ -26,7 +26,7 @@ function render_films($films_list) {
 
 // Get the year we want to view
 $index = new Index;
-$ajax_data = escapeXSS(get_json('php://input')->year);
+$ajax_data = escape_xss(get_json('php://input')->year);
 
 // Get and render the next chunk of film data
 $film_data = $index->get_films_by_year_chunks($ajax_data);

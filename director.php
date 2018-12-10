@@ -7,7 +7,7 @@ require_once 'src/common-utils.php';
 require_once 'src/classes/Director.php';
 
 
-$director_id = escapeXSS($_GET['director_id']);
+$director_id = escape_xss($_GET['director_id']);
 $director = new Director($director_id);
 
 // Get out of here if the director doesn't exist

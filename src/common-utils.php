@@ -5,19 +5,25 @@
  * @param {string} $text - The raw string to be escaped.
  * @return {string} The escaped string.
  */
-function escapeXSS($text) {
+function escape_xss($text) {
+  // Correctly handle non-breaking spaces
+  $text = trim($text, chr(0xC2).chr(0xA0));
+  $text = str_replace("&nbsp;", "", $text);
   return htmlentities(strip_tags(trim($text)));
 }
 
-function convert_bb_code($str) {
+
+function convert_bb_code($text) {
   $start_bb_tags = ['[b]', '[i]'];
   $start_html_tags = ['<strong>', '<em>'];
   $end_bb_tags = ['[/b]', '[/i]'];
   $end_html_tags = ['</strong>', '</em>'];
 
-  $str = str_replace($start_bb_tags, $start_html_tags, $str);
-  $str = str_replace($end_bb_tags, $end_html_tags, $str);
-  return nl2br(trim($str));
+  // Sanitize the data and convert the BBCode tags to HTML
+  $text = escape_xss($text);
+  $text = str_replace($start_bb_tags, $start_html_tags, $text);
+  $text = str_replace($end_bb_tags, $end_html_tags, $text);
+  return nl2br(trim($text));
 }
 
 function format_film_runtime($seconds) {
