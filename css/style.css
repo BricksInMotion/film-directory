@@ -57,12 +57,12 @@ header h1 {
   color: var(--primary-bg-color);
 }
 
-/* TODO: Needs work for mobile */
 .bim-title {
   padding-bottom: 0.2em;
   text-transform: uppercase;
 }
 .bim-title span { font-size: 1.23em; }
+
 .archive-title {
   padding-bottom: 0.35em;
   font-size: 1.5em;
