@@ -147,6 +147,16 @@ section h3 { margin: 0; }
   background-color: var(--primary-bg-color);
 }
 
+input {
+  border: none;
+  border-radius: 0;
+
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  font-family: var(--font-stack-body);
+}
+input:focus { box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2); }
+
 @media (max-width: 768px) {
   header {
     padding-top: 0.3em;
