@@ -35,6 +35,7 @@ ALTER TABLE `films`
   DROP COLUMN `rate_sound`,
   DROP COLUMN `rate_music`,
   DROP COLUMN `warn_desc`,
+  DROP COLUMN `date_post`,
   DROP COLUMN `date_edit`,
   DROP COLUMN `keywords`,
   DROP COLUMN `edit`;
