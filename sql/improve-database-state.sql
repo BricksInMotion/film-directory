@@ -45,7 +45,7 @@ ALTER TABLE `films`
 ALTER TABLE `films`
   ALTER `lenth` DROP DEFAULT;
 ALTER TABLE `films`
-  CHANGE COLUMN `lenth` `length` MEDIUMINT(8) UNSIGNED NOT NULL AFTER `date_post`;
+  CHANGE COLUMN `lenth` `length` MEDIUMINT(8) UNSIGNED NOT NULL AFTER `date_create`;
 
 -- Add new columns to hold film advisory warnings
 ALTER TABLE `films`
