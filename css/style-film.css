@@ -58,7 +58,17 @@
 .film-critiques h3 { text-align: center; }
 
 /* Cast & Crew/Staff Ratings */
-.film-cast-crew { flex-basis: 36%; }
+.film-cast-crew { flex-basis: 35%; }
+
+.film-cast-crew > div {
+  padding-top: 0.35em;
+  padding-bottom: 0.1em;
+}
+
+/* Alignment borders */
+.film-cast-crew > div:not(:first-of-type) { border-top: 1px dotted #ccc9c9; }
+.film-cast-crew > div:last-of-type { border-bottom: 1px dotted #ccc9c9; }
+
 .film-cast-crew span,
 .film-staff-ratings span { float: right; }
 .film-cast-crew .crewname { text-align: right; }
@@ -92,9 +102,15 @@
   .film-links > div { width: 12.5em; }
   .film-links h3 { text-align: center; }
 
+  /* Space out the cast/crew lines, remove the borders */
+  .film-cast-crew .crewname { padding-left: 1.75em; }
+  .film-cast-crew > div { border-top: none !important; }
+  .film-cast-crew > div:last-of-type { border-bottom: none; }
+
   .film-critiques {
     flex-direction: column;
     align-items: center;
+    font-size: 0.92em;
   }
   .film-critiques > div { margin-bottom: 1em; }
 }
