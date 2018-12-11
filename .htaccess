@@ -5,9 +5,11 @@ ErrorDocument 500 /404.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  Options +FollowSymlinks -Indexes
+  Options +FollowSymlinks +MultiViews -Indexes
 
-  # RewriteRule ^([a-z]+)\/?$ $1.php [N,C]
+  # Prevent access to sensitive folders
+  RedirectMatch 404 /.login/?$
+  RedirectMatch 404 /src/?
 
   # Mimic original directory URLs
   # TODO: Enable these
@@ -16,12 +18,8 @@ ErrorDocument 500 /404.php
 
   # Define new clean URLs
   # TODO: Enable these
-  # RewriteRule ^film/(\d*) /film.php?film_id=$1 [QSA, NC, L]
-  # RewriteRule ^film/(\d*)/$ /film.php?film_id=$1 [QSA, NC, L]
-
-  # Prevent access to sensitive folders
-  RedirectMatch 404 /.login/?$
-  RedirectMatch 404 /src/?
+  # RewriteRule ^film/(\d*) /film.php?film_id=$1 [QSA,NC,L]
+  # RewriteRule ^film/(\d*)/$ /film.php?film_id=$1 [QSA,NC,L]
 </IfModule>
 
 # TODO: Add caching, compressing, expires
