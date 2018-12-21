@@ -22,6 +22,7 @@
 </main>
 
 <?php require 'partials/footer.php'; ?>
+<script src="js/debounce.js"></script>
 <script src="js/search.js"></script>
 </body>
 </html>
