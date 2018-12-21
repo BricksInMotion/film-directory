@@ -19,7 +19,7 @@ function escape_xss($text) {
  * @return {boolean} true if empty, false otherwise.
  */
 function is_empty($text) {
-  return (bool) preg_match('/^\s$/', escape_xss($text)) === false;
+  return (bool) preg_match('/^\s{0}$/', $text) === true;
 }
 
 function convert_bb_code($text) {
