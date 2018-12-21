@@ -1,0 +1,27 @@
+input {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  font-size: 0.95em;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.half {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.half > fieldset {
+  width: 48%;
+}
+
+.rating-level {
+  margin-left: 0.2em;
+  font-size: 0.85em;
+}
