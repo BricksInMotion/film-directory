@@ -78,3 +78,16 @@ function render_film_list($roles) {
 function get_json($path) {
   return json_decode(file_get_contents($path), false);
 }
+
+function rewrite_youtu_be_url($url) {
+  // Extract the video id from a youtu.be url
+  $r = preg_match('/youtu\.be\/(.+)$/', $url, $matches);
+
+  // This is not a youtu.be or YouTube (at all) url
+  if ((bool) $r === false) {
+    return $url;
+  }
+
+  // Return an expanded YouTube url
+  return "https://www.youtube.com/watch?v={$matches[1]}";
+}
