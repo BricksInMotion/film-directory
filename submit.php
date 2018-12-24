@@ -21,10 +21,10 @@ require_once 'partials/header.php';
       <fieldset>
         <legend>Basic information</legend>
         <label for="film-title">Title</label>
-        <input type="text" name="film-title" id="film-title">
+        <input type="text" name="film-title" id="film-title" placeholder="The Citizen of the Year">
 
         <label for="film-runtime">Runtime</label>
-        <input type="text" name="film-runtime" id="film-runtime" placeholder="0:02:56">
+        <input type="text" name="film-runtime" id="film-runtime" placeholder="mm:ss" pattern="^(?:\d{1,2}:)?\d{2}:\d{2}$">
 
         <label for="film-release-date">Release date</label>
         <input type="date" name="film-release-date" id="film-release-date">

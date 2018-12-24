@@ -3,6 +3,7 @@
 var qContentWarningVio = document.querySelector("#film-vio-rate");
 var qContentWarningLang = document.querySelector("#film-lang-rate");
 var qContentWarningSex = document.querySelector("#film-sex-rate");
+var qBasicInfoReleaseDate = document.querySelector("#film-release-date");
 
 var warningValues = ["None", "Mild", "Moderate", "Strong"];
 var warningLabels = {
@@ -30,3 +31,7 @@ qContentWarningSex.value = "0";
 qContentWarningVio.addEventListener("change", handleSliderChange);
 qContentWarningLang.addEventListener("change", handleSliderChange);
 qContentWarningSex.addEventListener("change", handleSliderChange);
+
+// Default the release date to today
+var curDate = new Date();
+qBasicInfoReleaseDate.value = `${curDate.getFullYear()}-${curDate.getMonth() + 1}-${curDate.getDate()}`;
