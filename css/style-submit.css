@@ -6,8 +6,6 @@ input {
   font-size: 0.95em;
 }
 
-input[type="file"] { background-color: #fff; }
-
 textarea {
   resize: none;
   line-height: 1.3;

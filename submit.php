@@ -43,12 +43,6 @@ require_once 'partials/header.php';
 
     <div class="half">
       <fieldset>
-        <legend>Thumbnail</legend>
-        <label for="film-thumbnail"></label>
-        <input type="file" name="film-thumbnail" id="film-thumbnail" accept="image/jpeg,image/png">
-      </fieldset>
-
-      <fieldset>
         <legend>Content warnings</legend>
         <label for="film-vio-rate">Violence <span class="rating-level vio">None</span></label>
         <input type="range" name="film-vio-rate" id="film-vio-rate" min="0" max="3" value="0">
@@ -59,11 +53,11 @@ require_once 'partials/header.php';
         <label for="film-sex-rate">Sexual Content <span class="rating-level sex">None</span></label>
         <input type="range" name="film-sex-rate" id="film-sex-rate" min="0" max="3" value="0">
       </fieldset>
-    </div>
 
-    <fieldset>
-      <legend>Cast &amp; Crew</legend>
-    </fieldset>
+      <fieldset>
+        <legend>Cast &amp; Crew</legend>
+      </fieldset>
+    </div>
 
     <div class="buttons">
       <button type="reset">Clear film</button>
