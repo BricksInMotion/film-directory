@@ -62,7 +62,7 @@ function render_film_list($roles) {
   $final = '<ul class ="role-list">';
   foreach ($roles as $role) {
     $final .= "<li>
-    <a href='film.php?film_id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small><br>
+    <a href='/film.php?film_id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small><br>
     <div class='role-single'>{$role->role}</div>
     </li>";
   }
