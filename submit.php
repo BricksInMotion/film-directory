@@ -30,7 +30,7 @@ require_once 'partials/header.php';
         <input type="date" name="film-release-date" id="film-release-date">
 
         <label for="film-desc">Description</label>
-        <textarea name="film-desc" id="film-desc" cols="30" rows="10"></textarea>
+        <textarea name="film-desc" id="film-desc" cols="30" rows="10" placeholder="Congratulations. You've reached what you've been looking for. True joy, happiness, and personal enlightenment. The meaning of life."></textarea>
       </fieldset>
 
       <fieldset>
