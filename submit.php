@@ -61,12 +61,14 @@ require_once 'partials/header.php';
       </fieldset>
     </div>
 
-      <fieldset>
-        <legend>Cast &amp; Crew</legend>
-      </fieldset>
+    <fieldset>
+      <legend>Cast &amp; Crew</legend>
+    </fieldset>
 
-    <button type="reset">Clear film</button>
-    <button type="submit">Submit film</button>
+    <div class="buttons">
+      <button type="reset">Clear film</button>
+      <button type="submit">Submit film</button>
+    </div>
   </form>
 </main>
 
