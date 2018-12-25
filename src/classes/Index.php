@@ -41,7 +41,6 @@ class Index {
    */
   static function get_film_years() {
     return [
-      'Unknown' => '1900',
       '1989' => '1989',
       '1990' => '1990',
       '2000' => '2000',
@@ -75,22 +74,8 @@ class Index {
   function get_films_by_year_chunks($year) {
     require 'src/db-connect.php';
 
-    // These are films that have no proper release date
-    if ($year === '1900') {
-      // We've not loaded this year before, set a custom start id
-      if ($year !== $this->current_year) {
-        $this->start_id = 1;
-        $this->current_year = $year;
-      }
-
-      // Store the start id and year
-      $_SESSION['start_id'] = $this->start_id;
-      $_SESSION['current_year'] = $year;
-    }
-
     // Only get the start ID if we've not got it already
     // or we're browsing a different year
-    // This block is not hit the year is unknown
     if (is_null($this->start_id) || $year !== $this->current_year) {
       $this->start_id = $this->get_first_film($year);
       $this->current_year = $year;
