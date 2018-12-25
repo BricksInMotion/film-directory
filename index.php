@@ -23,8 +23,8 @@ $index = new Index;
    <h2>View films by year</h2>
     <div class="area-filter-year">
   <?php
-    foreach ($index::get_film_years() as $label => $year):
-      echo "<span class='btn-filter-year' data-year='{$year}'>{$label}</span>";
+    foreach ($index::get_film_years() as $year):
+      echo "<span class='btn-filter-year' data-year='{$year}'>{$year}</span>";
     endforeach;
   ?>
   </div>
