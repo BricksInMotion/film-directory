@@ -22,4 +22,4 @@
     ?>
 </head>
 
-<body class="<?= str_replace(' ', '-', strtolower($pageTitle)); ?>">
+<body>

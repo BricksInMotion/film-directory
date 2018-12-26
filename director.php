@@ -1,11 +1,6 @@
 <?php
-$pageTitle = 'View Director';
-$pageStyles = ['style-director.css'];
-require_once 'partials/head.php';
-require_once 'partials/header.php';
 require_once 'src/common-utils.php';
 require_once 'src/classes/Director.php';
-
 
 $director_id = escape_xss($_GET['director_id']);
 $director = new Director($director_id);
@@ -14,13 +9,21 @@ $director = new Director($director_id);
 if ($director->get_director_exists() === false) {
   redirect_url('404.php');
 }
+
+// Get/set director/set page info
+$director_info = $director->get_director_info();
+$pageTitle = "View Director {$director_info->real_name}";
+$pageStyles = ['style-director.css'];
+
+// Start loading the page
+require_once 'partials/head.php';
+require_once 'partials/header.php';
 ?>
 
 <main>
   <?php require 'partials/navi.html'; ?>
 
   <section class="dir-info">
-    <?php $director_info = $director->get_director_info(); ?>
     <h2>
       <?= $director_info->real_name; ?> <small>(<?= $director_info->user_name; ?>)</small><br>
       Filmography

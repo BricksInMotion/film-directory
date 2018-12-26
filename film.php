@@ -1,12 +1,6 @@
 <?php
-$pageTitle = 'View Film';
-$pageStyles = ['style-film.css'];
-
-require_once 'partials/head.php';
-require_once 'partials/header.php';
 require_once 'src/common-utils.php';
 require_once 'src/classes/Film.php';
-
 
 $film_id = escape_xss($_GET['film_id']);
 $film = new Film($film_id);
@@ -16,8 +10,17 @@ if ($film->get_film_exists() === false) {
   redirect_url('404.php');
 }
 
+// Get film and director info
 $film_info = $film->get_film_info();
 $director = $film->get_director_info();
+
+// Set the page info
+$pageTitle = $film_info->title;
+$pageStyles = ['style-film.css'];
+
+// Start loading the page
+require_once 'partials/head.php';
+require_once 'partials/header.php';
 ?>
 
 <main>
