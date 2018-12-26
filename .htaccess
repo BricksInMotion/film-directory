@@ -1,3 +1,6 @@
+# Remove PHP version in the response header
+Header unset X-Powered-By
+
 <IfModule mod_rewrite.c>
   # Error handling
   ErrorDocument 403 /404.php
@@ -64,5 +67,3 @@
     ExpiresByType application/x-javascript              "access plus 1 year"
     ExpiresByType text/javascript                       "access plus 1 year"
 </IfModule>
-
-# TODO: Add caching
