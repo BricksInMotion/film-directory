@@ -1,6 +1,17 @@
+.half {
+  display: flex;
+  justify-content: center;
+}
+.half > section { width: 45%; }
+
 .role-list li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
 .role-single { margin-top: 0.2em; }
+
+@media (max-width: 768px) {
+  .half { flex-direction: column; }
+  .half > section { width: 100%; }
+}
