@@ -11,6 +11,8 @@
   <title><?= $pageTitle; ?> | Bricks in Motion Film Directory Archive</title>
   <meta name="theme-color" content="#10141f">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <?php require 'partials/social-media.php'; ?>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,700|Montserrat:400,400i,700">
   <link rel="stylesheet" href="/css/style.css">
   <?php
