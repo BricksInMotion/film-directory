@@ -12,7 +12,7 @@ if ($director->get_director_exists() === false) {
 
 // Get/set director/set page info
 $director_info = $director->get_director_info();
-$pageTitle = "View Director {$director_info->real_name}";
+$pageTitle = "Director {$director_info->real_name}";
 $pageStyles = ['style-director.css'];
 
 // Start loading the page
