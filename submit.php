@@ -16,7 +16,7 @@ require_once 'partials/header.php';
   </section>
 
 
-  <form action="#" method="POS">
+  <form autocomplete="on" method="POST" action="#">
     <div class="half">
       <fieldset>
         <legend>Basic information</legend>
@@ -35,7 +35,15 @@ require_once 'partials/header.php';
 
       <fieldset>
         <legend>Links</legend>
-        <input type="text" name="film-label-1" id="film-label-1" placeholder="YouTube">
+        <label for="film-label-1">Website</label>
+        <select name="film-label-1" id="film-label-1">
+          <option value="youtube" selected>YouTube</option>
+          <option value="vimeo">Vimeo</option>
+          <option value="google">Google Drive</option>
+          <option value="other">Other</option>
+        </select>
+        <!-- <input type="text" name="film-label-1" id="film-label-1" placeholder="YouTube"> -->
+        <label for="film-url-1">URL</label>
         <input type="url" name="film-url-1" id="film-url-1" placeholder="https://www.youtube.com/watch?v=Ajrtmp9Fc1k">
         <button type="button">Add another</button>
       </fieldset>
