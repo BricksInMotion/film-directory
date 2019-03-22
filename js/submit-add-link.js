@@ -14,7 +14,6 @@ function addFilmLink() {
     html = html.replace(/\|link-id\|/g, filmLinkCount.toString());
 
     // Insert the partial into the page
-    console.log(html);
     qFilmLinks.insertAdjacentHTML("beforeend", html);
   })
   .catch(function(err) { console.error(err); });
