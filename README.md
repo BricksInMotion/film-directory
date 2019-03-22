@@ -3,7 +3,7 @@
 
 ## Brief
 
-[Bricks in Motion](http://www.bricksinmotion.com/) is a friendly filmmaking community devoted to the art of stop-motion animation. [Since 2009](http://www.bricksinmotion.com/forums/post/45237/), BiM has kept a film directory where brickfilm animators can submit their films. However, after running for over 10 years, the directory has become a logical mess and a nightmare to maintain and bug fix, yet remains popular and receives film submissions daily.
+[Bricks in Motion](https://www.bricksinmotion.com/) is a friendly filmmaking community devoted to the art of stop-motion animation. [Since 2009](https://www.bricksinmotion.com/forums/post/45237/), BiM has kept a film directory where brickfilm animators can submit their films. However, after running for over 10 years, the directory has become a logical mess and a nightmare to maintain and bug fix, yet remains popular and receives film submissions daily.
 
 As part of a larger forum upgrade, the directory became incompatible on a technical level due to a deep integration with the original forum software, but the submitted films were desired to be preserved for posterity purposes.
 

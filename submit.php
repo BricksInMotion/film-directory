@@ -24,7 +24,7 @@ require_once 'partials/header.php';
         <input type="text" name="film-title" id="film-title" placeholder="The Citizen of the Year">
 
         <label for="film-runtime">Runtime</label>
-        <input type="text" name="film-runtime" id="film-runtime" placeholder="mm:ss" pattern="^(?:\d{1,2}:)?\d{2}:\d{2}$">
+        <input type="text" name="film-runtime" id="film-runtime" placeholder="mm:ss" pattern="^\d{1,2}:\d{2}$">
 
         <label for="film-release-date">Release date</label>
         <input type="date" name="film-release-date" id="film-release-date">
@@ -33,19 +33,9 @@ require_once 'partials/header.php';
         <textarea name="film-desc" id="film-desc" cols="30" rows="10" placeholder="Congratulations. You've reached what you've been looking for. True joy, happiness, and personal enlightenment. The meaning of life."></textarea>
       </fieldset>
 
-      <fieldset>
+      <fieldset class="film-links">
         <legend>Links</legend>
-        <label for="film-label-1">Website</label>
-        <select name="film-label-1" id="film-label-1">
-          <option value="youtube" selected>YouTube</option>
-          <option value="vimeo">Vimeo</option>
-          <option value="google">Google Drive</option>
-          <option value="other">Other</option>
-        </select>
-        <!-- <input type="text" name="film-label-1" id="film-label-1" placeholder="YouTube"> -->
-        <label for="film-url-1">URL</label>
-        <input type="url" name="film-url-1" id="film-url-1" placeholder="https://www.youtube.com/watch?v=Ajrtmp9Fc1k">
-        <button type="button">Add another</button>
+        <button type="button" id="btn-add-film-link">Add link</button>
       </fieldset>
     </div>
 
@@ -75,6 +65,7 @@ require_once 'partials/header.php';
 </main>
 
 <?php require 'partials/footer.php'; ?>
+<script src="js/submit-add-link.js"></script>
 <script src="js/submit.js"></script>
 </body>
 </html>

@@ -63,6 +63,7 @@ qForm.addEventListener("reset", function() {
 
 // Set default form values on page load
 document.addEventListener("DOMContentLoaded", function() {
+  addFilmLink();
   defaultReleseDate();
   resetSliderValues();
 }, {once: true});
