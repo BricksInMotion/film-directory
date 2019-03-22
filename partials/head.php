@@ -14,11 +14,11 @@
   <?php require 'partials/social-media.php'; ?>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,700|Montserrat:400,400i,700">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <?php
     if (isset($pageStyles)):
       foreach ($pageStyles as $css):
-        echo "<link rel='stylesheet' href='/css/{$css}'>\n";
+        echo "<link rel='stylesheet' href='css/{$css}'>\n";
       endforeach;
     endif;
     ?>
