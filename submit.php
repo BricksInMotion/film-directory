@@ -24,7 +24,7 @@ require_once 'partials/header.php';
         <input type="text" name="film-title" id="film-title" placeholder="The Citizen of the Year">
 
         <label for="film-runtime">Runtime</label>
-        <input type="text" name="film-runtime" id="film-runtime" placeholder="mm:ss" pattern="^\d{1,2}:\d{2}$">
+        <input type="text" name="film-runtime" id="film-runtime" placeholder="hh:mm:ss" pattern="^(?:\d{1,2}:)?\d{1,2}:\d{2}$">
 
         <label for="film-release-date">Release date</label>
         <input type="date" name="film-release-date" id="film-release-date">
