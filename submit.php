@@ -31,6 +31,21 @@ require_once 'partials/header.php';
 
         <label for="film-desc">Description</label>
         <textarea name="film-desc" id="film-desc" cols="30" rows="10" placeholder="Congratulations. You've reached what you've been looking for. True joy, happiness, and personal enlightenment. The meaning of life."></textarea>
+
+        <label for="film-genres">Genres</label>
+        <select multiple id="film-genres">
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="history">History</option>
+          <option value="horror">Horror</option>
+          <option value="mystery">Mystery</option>
+          <option value="parody">Parody</option>
+          <option value="sci-fi">Sci-fi</option>
+          <option value="western">Western</option>
+        </select>
       </fieldset>
 
       <fieldset class="film-links">
@@ -54,6 +69,12 @@ require_once 'partials/header.php';
 
       <fieldset>
         <legend>Cast &amp; Crew</legend>
+        <div id="bim-members">
+          <p>Registered Cast &amp; Crew</p>
+        </div>
+        <div id="not-bim-members">
+          <p>Unregistered Cast &amp; Crew</p>
+        </div>
       </fieldset>
     </div>
 
@@ -66,6 +87,7 @@ require_once 'partials/header.php';
 
 <?php require 'partials/footer.php'; ?>
 <script src="js/submit-add-link.js"></script>
+<script src="js/submit-cast-crew.js"></script>
 <script src="js/submit.js"></script>
 </body>
 </html>

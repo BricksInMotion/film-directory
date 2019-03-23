@@ -41,6 +41,10 @@ fieldset {
   flex-direction: column;
 }
 
+.film-link-wrapper {
+  margin-bottom: 1em;
+}
+
 .half {
   display: flex;
   flex-wrap: wrap;

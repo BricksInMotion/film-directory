@@ -19,12 +19,12 @@ function addFilmLink() {
   .catch(function(err) { console.error(err); });
 }
 
-function removeFilmLink(link_id) {
+function removeFilmLink(linkId) {
   // Decrease the link count since we're removing one
   filmLinkCount--;
 
   // Remove the link from the page
-  document.querySelector(`.film-link-wrapper.link-${link_id}`).remove()
+  document.querySelector(`.film-link-wrapper.link-${linkId}`).remove()
 }
 
 // Load a film link partial on each button click
