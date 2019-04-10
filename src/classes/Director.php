@@ -101,7 +101,7 @@ class Director {
     // Provide dummy info that indicates such
     if ($info === false) {
       $fake_info = new stdClass();
-      $fake_info->user_id = '0';
+      $fake_info->user_id = 0;
       $fake_info->user_name = 'N/A';
       $fake_info->real_name = 'Unknown';
       return $fake_info;
