@@ -30,22 +30,23 @@ require_once 'partials/header.php';
         <input type="date" name="film-release-date" id="film-release-date">
 
         <label for="film-desc">Description</label>
-        <textarea name="film-desc" id="film-desc" cols="30" rows="10" placeholder="Congratulations. You've reached what you've been looking for. True joy, happiness, and personal enlightenment. The meaning of life."></textarea>
+        <textarea name="film-desc" id="film-desc" cols="30" rows="10"
+                  placeholder="Congratulations. You've reached what you've been looking for. True joy, happiness, and personal enlightenment. The meaning of life.">
+        </textarea>
 
-        <label for="film-genres">Genres</label>
-        <select multiple id="film-genres">
-          <option value="action">Action</option>
-          <option value="adventure">Adventure</option>
+        <label for="film-genre">Genres</label>
+        <select name="film-genre" id="film-genre">
+          <option value="action-adventure">Action/Adventure</option>
           <option value="comedy">Comedy</option>
           <option value="drama">Drama</option>
+          <option value="experimental">Experimental</option>
           <option value="fantasy">Fantasy</option>
-          <option value="history">History</option>
           <option value="horror">Horror</option>
-          <option value="mystery">Mystery</option>
-          <option value="parody">Parody</option>
+          <option value="non-fiction">Non-fiction</option>
           <option value="sci-fi">Sci-fi</option>
-          <option value="western">Western</option>
         </select>
+
+        <label><input type="check" id="film-is-ip">Is IP Film?</label>
       </fieldset>
 
       <fieldset class="film-links">
@@ -70,10 +71,10 @@ require_once 'partials/header.php';
       <fieldset>
         <legend>Cast &amp; Crew</legend>
         <div id="bim-members">
-          <p>Registered Cast &amp; Crew</p>
+          <p>Bricks in Motion members</p>
         </div>
         <div id="not-bim-members">
-          <p>Unregistered Cast &amp; Crew</p>
+          <p>Everyone else</p>
         </div>
       </fieldset>
     </div>
