@@ -15,7 +15,6 @@ require_once 'partials/header.php';
     <p><strong>Take note!</strong> You will need to be signed into the forum for this to work! When you submit a film, you will be forwarded to the forum to post the film. If you are not already signed in, you will be prompted to sign in and may lose all your film info!</p>
   </section>
 
-
   <form autocomplete="on" method="POST" action="#">
     <div class="half">
       <fieldset>
@@ -46,7 +45,7 @@ require_once 'partials/header.php';
           <option value="sci-fi">Sci-fi</option>
         </select>
 
-        <label><input type="check" id="film-is-ip">Is IP Film?</label>
+        <label><input type="checkbox" name="film-is-ip"> Is IP film?</label>
       </fieldset>
 
       <fieldset class="film-links">
