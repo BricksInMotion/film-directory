@@ -13,6 +13,12 @@ function addFilmLink() {
     // Add this film count to the loaded partial
     html = html.replace(/\|link-id\|/g, filmLinkCount.toString());
 
+    // Remove the remove button if this is the first link.
+    // A submitted film must have at least one link to it
+    if (filmLinkCount === 1) {
+      html = html.replace(/<button.+/, "");
+    }
+
     // Insert the partial into the page
     qFilmLinks.insertAdjacentHTML("beforeend", html);
   })
