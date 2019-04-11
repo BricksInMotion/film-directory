@@ -1,4 +1,6 @@
-input,
+input[type="url"],
+input[type="text"],
+input[type="date"],
 select {
   padding: 0.5em;
   margin-top: 0.5em;
