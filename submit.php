@@ -69,11 +69,26 @@ require_once 'partials/header.php';
 
       <fieldset>
         <legend>Cast &amp; Crew</legend>
-        <div id="bim-members">
-          <p>Bricks in Motion members</p>
-        </div>
-        <div id="not-bim-members">
-          <p>Everyone else</p>
+        <div class="crew-member-wrapper member-1">
+          <label for="crew-role">Role</label>
+          <select name="crew-role" id="crew-role" class="crew-role member-1">
+            <option value="director">Director</option>
+            <option value="animator">Animator</option>
+            <option value="voice">Voice Actor</option>
+            <option value="writer">Writer</option>
+            <option value="editor">Editor</option>
+            <option value="composer">Composer</option>
+            <option value="sound">Sound Editing</option>
+            <option value="vfx">VFX Artist</option>
+            <option value="other">Other Crew</option>
+            <option value="thanks">Special Thanks</option>
+          </select>
+          <label for="crew-username">Username &nbsp;<input type="text" name="crew-username" id="crew-username"  placeholder="Username"></label>
+          <label for="crew-title" class="crew-title-1 hidden">Title &nbsp;<input type="text" name="crew-title" id="crew-title" placeholder="Title"></label>
+          <label><input type="checkbox" name="crew-is-bim"> Is BiM member?</label>
+          <!-- onclick="removeCrewMember(|link-id|);" -->
+          <button type="button">Remove crew member</button>
+
         </div>
       </fieldset>
     </div>

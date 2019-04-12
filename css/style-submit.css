@@ -38,12 +38,14 @@ fieldset {
 }
 
 .film-link-wrapper,
+.crew-member-wrapper,
 fieldset {
   display: flex;
   flex-direction: column;
 }
 
-.film-link-wrapper {
+.film-link-wrapper,
+.crew-member-wrapper {
   margin-bottom: 1em;
 }
 
@@ -72,4 +74,8 @@ fieldset {
 .buttons > button {
   margin-right: 0.5em;
   margin-left: 0.5em;
+}
+
+.hidden {
+  display: none;
 }
