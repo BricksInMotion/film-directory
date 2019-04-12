@@ -4,4 +4,4 @@
   <div><a href="https://www.bricksinmotion.com/forums/topic/25304/bricks-in-motion-staff-list/">Site Credits</a> | <a href="https://www.bricksinmotion.com/forums/topic/25303/bricks-in-motion-privacy-policy/">Privacy Policy</a></div>
 </footer>
 
-<script src="https://cdn.polyfill.io/v2/polyfill.js?features=fetch,Element.prototype.matches"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=fetch%2CArray.prototype.includes"></script>
