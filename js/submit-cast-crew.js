@@ -48,15 +48,3 @@ function removeCrewMember(memberId) {
 
 // Load a new crew member on each button click
 document.querySelector("#btn-add-crew-member").addEventListener("click", addCrewMember);
-
-// // Listen for changes in this role
-// var qCrewMemberRole = document.querySelector(`.crew-role.member-${crewCount}`);
-// var qCrewMemberTitle = document.querySelector(`.crew-title-${crewCount}`);
-
-// qCrewMemberRole.addEventListener("change", function() {
-//   // Show/hide the title field if we need to show it
-//   qCrewMemberTitle.classList.toggle(
-//     "hidden",
-//     !["other", "voice"].includes(this.value)
-//   );
-// });

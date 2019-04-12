@@ -70,27 +70,6 @@ require_once 'partials/header.php';
       <fieldset class="film-cast-crew">
         <legend>Cast &amp; Crew</legend>
         <button type="button" id="btn-add-crew-member">Add crew member</button>
-
-        <!-- <div class="crew-member-wrapper member-1">
-          <label for="crew-role-1">Role</label>
-          <select name="crew-role-1" id="crew-role" class="crew-role member-1">
-            <option value="director">Director</option>
-            <option value="animator">Animator</option>
-            <option value="voice">Voice Actor</option>
-            <option value="writer">Writer</option>
-            <option value="editor">Editor</option>
-            <option value="composer">Composer</option>
-            <option value="sound">Sound Editing</option>
-            <option value="vfx">VFX Artist</option>
-            <option value="other">Other Crew</option>
-            <option value="thanks">Special Thanks</option>
-          </select>
-          <label for="crew-username">Username &nbsp;<input type="text" name="crew-username" id="crew-username"  placeholder="Username"></label>
-          <label for="crew-title" class="crew-title member-1 hidden">Title &nbsp;<input type="text" name="crew-title-1" id="crew-title" placeholder="Title"></label>
-          <label><input type="checkbox" name="crew-is-bim-1"> Is BiM member?</label>
-          <button type="button">Remove crew member</button>
-        </div> -->
-        <!-- onclick="removeCrewMember(|member-id|);" -->
       </fieldset>
     </div>
 
