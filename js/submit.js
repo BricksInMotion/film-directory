@@ -41,7 +41,7 @@ function resetSliderValues() {
 /**
  * Default the release date to today.
  */
-function defaultReleseDate() {
+function defaultReleaseDate() {
   var curDate = new Date();
   qBasicInfoReleaseDate.value = `${curDate.getFullYear()}-${curDate.getMonth() + 1}-${curDate.getDate()}`;
 }
@@ -56,7 +56,7 @@ qContentWarningSex.addEventListener("change", handleSliderChange);
 qForm.addEventListener("reset", function() {
   // https://stackoverflow.com/a/21641295
   setTimeout(function() {
-    defaultReleseDate();
+    defaultReleaseDate();
     resetSliderValues();
   });
 });
@@ -64,6 +64,7 @@ qForm.addEventListener("reset", function() {
 // Set default form values on page load
 document.addEventListener("DOMContentLoaded", function() {
   addFilmLink();
-  defaultReleseDate();
+  addCrewMember();
+  defaultReleaseDate();
   resetSliderValues();
 }, {once: true});

@@ -1,0 +1,19 @@
+<div class="crew-member-wrapper member-|member-id|">
+    <label for="crew-role-|member-id|">Role</label>
+    <select name="crew-role-|member-id|" id="crew-role" class="crew-role member-|member-id|">
+      <option value="director">Director</option>
+      <option value="animator">Animator</option>
+      <option value="voice">Voice Actor</option>
+      <option value="writer">Writer</option>
+      <option value="editor">Editor</option>
+      <option value="composer">Composer</option>
+      <option value="sound">Sound Editing</option>
+      <option value="vfx">VFX Artist</option>
+      <option value="other">Other Crew</option>
+      <option value="thanks">Special Thanks</option>
+    </select>
+    <label for="crew-username">Username &nbsp;<input type="text" name="crew-username" id="crew-username"  placeholder="Username"></label>
+    <label for="crew-title" class="crew-title member-|member-id| hidden">Title &nbsp;<input type="text" name="crew-title-|member-id|" id="crew-title" placeholder="Title"></label>
+    <label><input type="checkbox" name="crew-is-bim-|member-id|"> Is BiM member?</label>
+    <button type="button" onclick="removeCrewMember(|member-id|);">Remove crew member</button>
+  </div>

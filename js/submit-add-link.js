@@ -30,7 +30,7 @@ function removeFilmLink(linkId) {
   filmLinkCount--;
 
   // Remove the link from the page
-  document.querySelector(`.film-link-wrapper.link-${linkId}`).remove()
+  document.querySelector(`.film-link-wrapper.link-${linkId}`).remove();
 }
 
 // Load a film link partial on each button click

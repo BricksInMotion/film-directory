@@ -67,11 +67,13 @@ require_once 'partials/header.php';
         <input type="range" name="film-sex-rate" id="film-sex-rate" min="0" max="3" value="0">
       </fieldset>
 
-      <fieldset>
+      <fieldset class="film-cast-crew">
         <legend>Cast &amp; Crew</legend>
-        <div class="crew-member-wrapper member-1">
-          <label for="crew-role">Role</label>
-          <select name="crew-role" id="crew-role" class="crew-role member-1">
+        <button type="button" id="btn-add-crew-member">Add crew member</button>
+
+        <!-- <div class="crew-member-wrapper member-1">
+          <label for="crew-role-1">Role</label>
+          <select name="crew-role-1" id="crew-role" class="crew-role member-1">
             <option value="director">Director</option>
             <option value="animator">Animator</option>
             <option value="voice">Voice Actor</option>
@@ -84,12 +86,11 @@ require_once 'partials/header.php';
             <option value="thanks">Special Thanks</option>
           </select>
           <label for="crew-username">Username &nbsp;<input type="text" name="crew-username" id="crew-username"  placeholder="Username"></label>
-          <label for="crew-title" class="crew-title-1 hidden">Title &nbsp;<input type="text" name="crew-title" id="crew-title" placeholder="Title"></label>
-          <label><input type="checkbox" name="crew-is-bim"> Is BiM member?</label>
-          <!-- onclick="removeCrewMember(|link-id|);" -->
+          <label for="crew-title" class="crew-title member-1 hidden">Title &nbsp;<input type="text" name="crew-title-1" id="crew-title" placeholder="Title"></label>
+          <label><input type="checkbox" name="crew-is-bim-1"> Is BiM member?</label>
           <button type="button">Remove crew member</button>
-
-        </div>
+        </div> -->
+        <!-- onclick="removeCrewMember(|member-id|);" -->
       </fieldset>
     </div>
 
