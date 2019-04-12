@@ -25,7 +25,7 @@ function addCrewMember() {
 
     // Listen for changes in this role
     var qCrewMemberRole = document.querySelector(`.crew-role.member-${crewMemberCount}`);
-    var qCrewMemberTitle = document.querySelector(`.crew-title-${crewMemberCount}`);
+    var qCrewMemberTitle = document.querySelector(`.crew-title.member-${crewMemberCount}`);
 
     // Show/hide the title field if we need to show it
     qCrewMemberRole.addEventListener("change", function() {
