@@ -75,7 +75,7 @@ require_once 'partials/header.php';
 
     <div class="buttons">
       <button type="reset">Clear film</button>
-      <button type="submit">Submit film</button>
+      <button type="button">Submit film</button>
     </div>
   </form>
 </main>
@@ -84,5 +84,6 @@ require_once 'partials/header.php';
 <script src="js/submit-add-link.js"></script>
 <script src="js/submit-cast-crew.js"></script>
 <script src="js/submit.js"></script>
+<script src="js/submit-submit.js"></script>  <!-- lololol naming files is hard -->
 </body>
 </html>
