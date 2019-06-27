@@ -2,12 +2,36 @@
 require_once 'src/common-utils.php';
 require_once 'src/classes/Film.php';
 
+// Does the user wants a JSON representation of the film?
+$client_wants_json = (isset($_GET["format"]) && $_GET["format"] === 'json');
+
+// Attempt to load this film
 $film_id = escape_xss($_GET['film_id']);
 $film = new Film($film_id);
 
-// Get out of here if the film doesn't exist
-if ($film->get_film_exists() === false) {
-  redirect_url('404.php');
+// Get out of here if the film doesn't exist OR
+// this is not a Reborn-style film, which is not supported
+if (
+    $film->get_film_exists() === false ||
+    $film->get_film_reborn_status() === false
+) {
+    // Handle this according to the request type
+    if ($client_wants_json) {
+        http_response_code(404);
+        header('Content-Type: application/json');
+        echo json_encode(['exists' => false]);
+        exit();
+    } else {
+        redirect_url('404.php');
+    }
+}
+
+// Build up the JSON response and send it back
+if ($client_wants_json) {
+    require_once 'src/film-json-response.php';
+    header('Content-Type: application/json');
+    echo json_encode(build_film_json($film));
+    exit();
 }
 
 // Get film and director info

@@ -27,6 +27,23 @@ class Film {
   }
 
   /**
+   * Determine if the film is a Reborn-style film.
+   *
+   * @return {bool}
+   */
+  function get_film_reborn_status() {
+    require 'src/db-connect.php';
+    $stmt = $pdo->prepare('SELECT
+    `is_reborn_film`
+    FROM `films`
+    WHERE `films`.`id`= ?
+    LIMIT 1');
+    $stmt->execute([$this->id]);
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    return (bool) $result->is_reborn_film === true;
+  }
+
+  /**
    * Get the film's basic info.
    *
    * @return {stdClass}
