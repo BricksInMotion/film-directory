@@ -13,7 +13,7 @@ $film = new Film($film_id);
 // this is a JSON request for a non Reborn-style film,
 //which is not supported
 if ($film->get_film_exists() === false ||
-    ($client_wants_json && $film->get_film_reborn_status() === false)
+    ($client_wants_json && $film->film_is_reborn_style() === false)
 ) {
     // Handle this according to the request type
     if ($client_wants_json) {

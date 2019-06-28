@@ -31,7 +31,7 @@ class Film {
    *
    * @return {bool}
    */
-  function get_film_reborn_status() {
+  function film_is_reborn_style() {
     require 'src/db-connect.php';
     $stmt = $pdo->prepare('SELECT
     `is_reborn_film`
