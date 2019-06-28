@@ -144,7 +144,7 @@ class Film {
   function get_links() {
     require 'src/db-connect.php';
 
-    $stmt = $pdo->prepare('SELECT `link`, `link_desc` AS `label`
+    $stmt = $pdo->prepare('SELECT `link`, `label`
     FROM `films_links`
     WHERE `film_id`= ?');
     $stmt->execute([$this->id]);

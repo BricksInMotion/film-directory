@@ -55,3 +55,15 @@ ALTER TABLE `films`
   ALTER `lenth` DROP DEFAULT;
 ALTER TABLE `films`
   CHANGE COLUMN `lenth` `length` MEDIUMINT(8) UNSIGNED NOT NULL AFTER `date_create`;
+
+-- Revise the links table to be more sensible
+ALTER TABLE `films_links`
+  ALTER `film_id` DROP DEFAULT,
+  ALTER `link` DROP DEFAULT,
+  ALTER `link_desc` DROP DEFAULT;
+ALTER TABLE `films_links`
+  CHANGE COLUMN `id` `id` INT(20) UNSIGNED NOT NULL AUTO_INCREMENT FIRST,
+  CHANGE COLUMN `film_id` `film_id` INT(12) UNSIGNED NOT NULL AFTER `id`,
+  CHANGE COLUMN `link` `link` VARCHAR(255) NOT NULL AFTER `film_id`,
+  CHANGE COLUMN `link_desc` `label` VARCHAR(255) NOT NULL AFTER `link`;
+
