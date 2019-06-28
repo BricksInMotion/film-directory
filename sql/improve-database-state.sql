@@ -13,6 +13,11 @@ DROP TABLE `films_ratings`;
 ALTER TABLE `films_user_rate_votes`
   DROP COLUMN `user_ip`;
 
+-- Remove the ID that links a film's individual rating
+-- back to the the person who rated it
+ALTER TABLE `films_user_rate`
+  DROP COLUMN `banned_id`;
+
 -- Film review date was never stored to begin with,
 -- they are all '0000-00-00 00:00:000'
 ALTER TABLE `films_reviews`
