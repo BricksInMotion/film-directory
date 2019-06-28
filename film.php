@@ -62,8 +62,8 @@ require_once 'partials/header.php';
       <span><strong>Runtime</strong>: <?= format_film_runtime($film_info->length); ?></span><br>
       <div class="film-genres"><strong>Genres</strong>:
         <?php
-        foreach ($film->get_genres() as $record):
-          echo "<span class='genre'>{$record->genre}</span>";
+        foreach ($film->get_genres() as $genre):
+          echo "<span class='genre'>{$genre}</span>";
         endforeach;
         ?>
       </div>

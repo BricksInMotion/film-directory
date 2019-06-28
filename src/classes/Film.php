@@ -182,7 +182,7 @@ class Film {
   /**
    * Get the film's genres.
    *
-   * @return {stdClass}
+   * @return {array}
    */
   function get_genres() {
     require 'src/db-connect.php';
@@ -192,7 +192,14 @@ class Film {
     INNER JOIN `films_genre` ON `films_all_genres`.`id` = `films_genre`.`genres_id`
     WHERE `films_genre`.`film_id` = ?');
     $stmt->execute([$this->id]);
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
+    $genres = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    // Flatten the list for a cleaner response
+    $result = [];
+    foreach ($genres as $record) {
+        $result[] = $record->genre;
+    }
+      return $result;
   }
 
   /**
