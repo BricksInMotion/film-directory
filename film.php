@@ -71,11 +71,11 @@ require_once 'partials/header.php';
       <span><strong>Rating</strong>: <?= $film_rating->rating; ?>/5 (out of <?= $film_rating->total_votes; ?> <?= $film_rating->word; ?>)</span><br>
       <div class="film-warnings"><strong>Content Advisory</strong>:
         <?php
-        foreach ($film->get_warnings() as $warning):
+        foreach ($film->get_advisories() as $advisory):
           $str = "<span class='warning |severity|'>|capital_severity| |type|</span>";
-          $str = str_replace('|severity|', $warning['severity'], $str);
-          $str = str_replace('|capital_severity|', ucfirst($warning['severity']), $str);
-          $str = str_replace('|type|', $warning['type'], $str);
+          $str = str_replace('|severity|', $advisory['severity'], $str);
+          $str = str_replace('|capital_severity|', ucfirst($advisory['severity']), $str);
+          $str = str_replace('|type|', $advisory['type'], $str);
           echo $str;
         endforeach;
         ?>

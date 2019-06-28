@@ -207,12 +207,12 @@ class Film {
    *
    * @return {stdClass}
    */
-  function get_warnings() {
+  function get_advisories() {
     require 'src/db-connect.php';
 
-    $stmt = $pdo->prepare('SELECT `warn_lang`, `warn_vio`, `warn_sex`
-    FROM `films`
-    WHERE `id`= ?');
+    $stmt = $pdo->prepare('SELECT `language`, `sex`, `violence`
+    FROM `films_advisories`
+    WHERE `film_id`= ?');
     $stmt->execute([$this->id]);
     $warnings = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -235,9 +235,9 @@ class Film {
 
     // Define proper labels based on values in the db
     $types = [
-      'warn_vio' => 'violence',
-      'warn_lang' => 'language',
-      'warn_sex' => 'sexual content'
+      'violence' => 'violence',
+      'language' => 'language',
+      'sex' => 'sexual content'
     ];
     $severity = [
       '1' => 'mild',
