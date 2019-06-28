@@ -9,9 +9,10 @@ ALTER TABLE `films_genre`
 DROP TABLE `films_tags`;
 DROP TABLE `films_ratings`;
 
--- Remove user's IP addresses (why do we even have these?!?!)
+-- Remove user's IP addresses and the date of this rating
 ALTER TABLE `films_user_rate_votes`
-  DROP COLUMN `user_ip`;
+  DROP COLUMN `user_ip`,
+  DROP COLUMN `rating_date`;
 
 -- Remove the ID that links a film's individual rating
 -- back to the the person who rated it
