@@ -10,10 +10,10 @@ $film_id = escape_xss($_GET['film_id']);
 $film = new Film($film_id);
 
 // Get out of here if the film doesn't exist OR
-// this is not a Reborn-style film, which is not supported
-if (
-    $film->get_film_exists() === false ||
-    $film->get_film_reborn_status() === false
+// this is a JSON request for a non Reborn-style film,
+//which is not supported
+if ($film->get_film_exists() === false ||
+    ($client_wants_json && $film->get_film_reborn_status() === false)
 ) {
     // Handle this according to the request type
     if ($client_wants_json) {
