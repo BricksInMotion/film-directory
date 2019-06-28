@@ -1,5 +1,5 @@
 -- Rename `genres` table to be consistent with other table names
-RENAME TABLE `genres` TO `films_all_genres`;
+RENAME TABLE `genres` TO `films_genre_categories`;
 
 -- Remove the primary genre indicator (it is not respected)
 ALTER TABLE `films_genre`

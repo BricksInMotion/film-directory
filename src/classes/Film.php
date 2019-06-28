@@ -188,8 +188,8 @@ class Film {
     require 'src/db-connect.php';
 
     $stmt = $pdo->prepare('SELECT `genre`
-    FROM `films_all_genres`
-    INNER JOIN `films_genre` ON `films_all_genres`.`id` = `films_genre`.`genres_id`
+    FROM `films_genre_categories`
+    INNER JOIN `films_genre` ON `films_genre_categories`.`id` = `films_genre`.`genres_id`
     WHERE `films_genre`.`film_id` = ?');
     $stmt->execute([$this->id]);
     $genres = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -222,6 +222,8 @@ class Film {
     });
 
     // This film has no warnings
+    // The "advisory" values are still printed on the page
+    // to indicate there are no advisories
     $results = new stdClass();
     if (count($warnings) === 0) {
       $results->none = [
