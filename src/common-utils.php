@@ -36,6 +36,12 @@ function convert_bb_code($text) {
 }
 
 function format_film_runtime($seconds) {
+  // A film is always >= 1 second. If this case is hit,
+  // it is probably a film that we can't get the runtime for
+  if (!$seconds) {
+    return 'Unknown';
+  }
+
   // https://stackoverflow.com/a/3856312
   $hours = floor($seconds / 3600);
   $mins = floor($seconds / 60 % 60);
