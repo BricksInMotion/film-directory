@@ -12,7 +12,7 @@ COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB;
 
 -- Using data from the forums_users table, populate the new table
--- with only the users that have posted in the directory
+-- with the users that have directly posted in the directory
 INSERT INTO `films_users` (`user_id`, `user_name`, `real_name`)
 SELECT `id`, `username`, `realname`
 FROM `forums_users`
@@ -21,6 +21,22 @@ WHERE `id` IN (
   FROM `films` INNER JOIN `forums_users`
     ON `films`.`user_id` = `forums_users`.`id`
   ORDER BY `forums_users`.`id` ASC
+);
+
+-- These are the IDs of users listed in the directory
+-- but are not directors, and are missed by the last query.
+-- We need these people too
+INSERT INTO `films_users` (`user_id`, `user_name`, `real_name`)
+SELECT `id`, `username`, `realname`
+FROM `forums_users`
+WHERE `id` IN (
+SELECT DISTINCT `forums_users`.`id`
+  FROM `forums_users` INNER JOIN films_castcrew
+    ON forums_users.id = films_castcrew.user_id
+  WHERE forums_users.id NOT IN (
+  SELECT user_id FROM films_users
+  )
+  ORDER BY forums_users.id
 );
 
 -- Finally, if a user has no real/director's name defined,

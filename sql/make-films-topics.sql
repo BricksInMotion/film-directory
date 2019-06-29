@@ -12,4 +12,4 @@ ENGINE=InnoDB;
 INSERT INTO `films_topics` (`film_id`, `topic_id`)
 SELECT `film_id`, `id`
 FROM `forums_topics`
-WHERE NOT ISNULL(`forums_topics`.`film_id`);
+WHERE `forums_topics`.`film_id`) IS NOT NULL;

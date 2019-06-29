@@ -128,7 +128,7 @@ class Film {
     $stmt = $pdo->prepare('SELECT
     `total_votes`,
     ROUND(`total_value` / `total_votes`, 2) AS `raw_rating`,
-    (SELECT IF(ISNULL(`raw_rating`), FORMAT(0, 0), `raw_rating`)) AS `rating`,
+    (SELECT IFNULL(`raw_rating`, FORMAT(0, 0))) AS `rating`,
     IF(`total_votes` >= 0, "ratings", "rating") AS `word`
     FROM `films_user_rate`
     WHERE `films_user_rate`.`id` = CONCAT("film", ?)');
@@ -282,10 +282,10 @@ class Film {
     $stmt = $pdo->prepare('SELECT
     `films_crewtype`.`crewname`,
     `name` AS `raw_db_name`,
-    IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
+    IFNULL(`user_id`, 0) AS `cc_user_id`,
     (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
-    (SELECT IF(ISNULL(`raw_db_name`), `raw_user_name`, `raw_db_name`)) AS `raw_name`,
-    (SELECT IF(ISNULL(`raw_name`), "Unknown", `raw_name`)) AS `name`
+    (SELECT IFNULL(`raw_db_name`, `raw_user_name`)) AS `raw_name`,
+    (SELECT IFNULL(`raw_name`, "Unknown")) AS `name`
     FROM `films_castcrew`
     INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
     WHERE `job` < 8 AND `film_id` = ?
@@ -298,10 +298,10 @@ class Film {
     $stmt = $pdo->prepare('SELECT
     IF(`cast` = "", `crewdesc`, `cast`) AS `crewname`,
     `name` AS `raw_db_name`,
-    IF(ISNULL(`user_id`), 0, `user_id`) AS `cc_user_id`,
+    IFNULL(`user_id`, 0) AS `cc_user_id`,
     (SELECT `real_name` FROM `films_users` WHERE `cc_user_id` = `films_users`.`user_id`) AS `raw_user_name`,
-    (SELECT IF(ISNULL(`raw_db_name`), `raw_user_name`, `raw_db_name`)) AS `raw_name`,
-    (SELECT IF(ISNULL(`raw_name`), "Unknown", `raw_name`)) AS `name`
+    (SELECT IFNULL(`raw_db_name`, `raw_user_name`)) AS `raw_name`,
+    (SELECT IFNULL(`raw_name`, "Unknown")) AS `name`
     FROM `films_castcrew`
     INNER JOIN `films_crewtype` ON `films_castcrew`.`job` = `films_crewtype`.`id`
     WHERE `job` >= 8 AND `film_id` = ?
@@ -335,7 +335,7 @@ class Film {
     $stmt = $pdo->prepare('SELECT
     `id`,
     ROUND(`total_value` / `total_votes`, 1) AS `raw_rating`,
-    (SELECT IF(ISNULL(`raw_rating`), "N/A", `raw_rating`)) AS `rating`
+    (SELECT IFNULL(`raw_rating`, "N/A")) AS `rating`
     FROM films_user_rate
     WHERE id REGEXP CONCAT("^rev..", ?, "$")');
     $stmt->execute([$this->id]);
