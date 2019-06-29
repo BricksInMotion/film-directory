@@ -196,7 +196,7 @@ class Film {
 
     // This film has no assigned genres
     if (count($genres) === 0) {
-      return ['None'];
+      return ['Unassigned'];
     }
 
     // Flatten the list for a cleaner response

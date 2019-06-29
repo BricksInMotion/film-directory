@@ -94,7 +94,11 @@ require_once 'partials/header.php';
       <h3>Watch</h3>
       <div>
         <?php
-        foreach ($film->get_links() as $record):
+        $film_links = $film->get_links();
+        if (count($film_links) === 0):
+          echo 'No links available';
+        endif;
+        foreach ($film_links as $record):
           echo "<span class='link'><a href='{$record->link}' target='_blank'>{$record->label}</a></span>";
         endforeach;
         ?>
