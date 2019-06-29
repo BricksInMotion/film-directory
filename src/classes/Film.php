@@ -194,6 +194,11 @@ class Film {
     $stmt->execute([$this->id]);
     $genres = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+    // This film has no assigned genres
+    if (count($genres) === 0) {
+      return ['None'];
+    }
+
     // Flatten the list for a cleaner response
     $result = [];
     foreach ($genres as $record) {
