@@ -13,7 +13,7 @@ In that light, the purpose of this project is to provide a modern browsing exper
 
 1. `$ mv .login/db-example.json .login/db.json`
 1. Add database credentials
-1. `$ docker build -f "docker/Dockerfile" -t bim-film-archive:latest .`
+1. `$ docker build -f "docker/Dockerfile" -t bim-film-directory:latest .`
 
 ## License
 

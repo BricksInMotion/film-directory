@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  mariadb:
+      image: mariadb:10.4
+      container_name: bim-films-db
+      restart: unless-stopped
+      volumes:
+        - ../film-directory/db:/docker-entrypoint-initdb.d
+        - ../film-directory/secrets:/secrets
+        - ../bim-films-db/:/var/lib/mysql
+      ports:
+        - 127.0.0.1:3306:3306
+      environment:
+        - MYSQL_RANDOM_ROOT_PASSWORD=yes
+        - MYSQL_DATABASE=vss365today
+        - MYSQL_USER_FILE=/secrets/mysql_user
+        - MYSQL_PASSWORD_FILE=/secrets/mysql_password
+      networks:
+        - bim_docker
