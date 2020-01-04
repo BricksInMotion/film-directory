@@ -19,4 +19,4 @@ In that light, the purpose of this project is to provide a modern browsing exper
 
 [MIT](LICENSE)
 
-2018-2019 Caleb Ely
+2018-2020 Caleb Ely
