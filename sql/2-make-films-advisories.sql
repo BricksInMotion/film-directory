@@ -1,9 +1,9 @@
 -- Create a new table to store film advisories
 CREATE TABLE `films_advisories` (
   `film_id` INT(12) UNSIGNED NOT NULL,
-  `sex` ENUM('0','1','2','3') NOT NULL,
-  `language` ENUM('0','1','2','3') NOT NULL,
-  `violence` ENUM('0','1','2','3') NOT NULL,
+  `sex` ENUM('0','1','2','3') NOT NULL DEFAULT '0',
+  `language` ENUM('0','1','2','3') NOT NULL DEFAULT '0',
+  `violence` ENUM('0','1','2','3') NOT NULL DEFAULT '0',
   PRIMARY KEY (`film_id`)
 )
 COLLATE='utf8mb4_general_ci'
