@@ -6,8 +6,9 @@ RUN docker-php-ext-install pdo_mysql
 # Use the default production configuration
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-# Enable Apache modules
-RUN a2enmod rewrite expires headers
+# Install the Apache config for the site
+COPY ./docker/httpd.conf /etc/apache2/sites-available/filmdirectory.conf
 
-# Copy the site files
-COPY . /var/www/html
+# Enable Apache modules and the site
+RUN a2enmod rewrite expires headers
+RUN a2ensite filmdirectory
