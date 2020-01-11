@@ -10,20 +10,20 @@ COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB;
 
 -- Remove all null values from the existing data
-UPDATE IGNORE `films`
-SET `warn_sex` = '0'
+UPDATE `films`
+SET `warn_sex` = 0
 WHERE `warn_sex` IS NULL;
 
-UPDATE IGNORE `films`
-SET `warn_lang` = '0'
+UPDATE `films`
+SET `warn_lang` = 0
 WHERE `warn_lang` IS NULL;
 
-UPDATE IGNORE `films`
-SET `warn_vio` = '0'
+UPDATE `films`
+SET `warn_vio` = 0
 WHERE `warn_vio` IS NULL;
 
 -- Copy the ratings into the new table
-INSERT IGNORE INTO `films_advisories`(`film_id`, `language`, `sex`, `violence`)
-SELECT `id`, `warn_lang`, `warn_sex`, `warn_vio`
+INSERT INTO `films_advisories`(`film_id`, `language`, `sex`, `violence`)
+SELECT `id`, CAST(`warn_lang` AS CHAR), CAST(`warn_sex` AS CHAR), CAST(`warn_vio` AS CHAR)
 FROM `films`
 ORDER BY `films`.`id`;
