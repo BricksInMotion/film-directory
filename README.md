@@ -11,8 +11,9 @@ In that light, the purpose of this project is to provide a modern browsing exper
 
 ## Usage
 
-1. `$ mv .login/db-example.json .login/db.json`
-1. Add database credentials
+1. `$ touch ./secrets/api_server`
+1. `$ touch ./secrets/api_key`
+1. Set API secrets
 1. `$ docker build -f "docker/Dockerfile" -t bim-film-directory:latest .`
 
 ## License

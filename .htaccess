@@ -12,8 +12,11 @@ Header unset X-Powered-By
 
   # Prevent access to sensitive folders
   RewriteEngine On
-  RedirectMatch 404 /.login/?$
+  RedirectMatch 404 /.git/?
+  RedirectMatch 404 /docker/?
+  RedirectMatch 404 /secrets/?$
   RedirectMatch 404 /src/?
+  RedirectMatch 404 /sql/?
 
   # Define clean urls for browsing
   RewriteRule ^film/(\d+) film.php?id=$1

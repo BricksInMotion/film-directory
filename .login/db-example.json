@@ -1,7 +1,0 @@
-{
-  "host": "127.0.0.1",
-  "user": "<user> ",
-  "pass": "<password>",
-  "charset": "utf8mb4",
-  "db": "<database>"
-}
