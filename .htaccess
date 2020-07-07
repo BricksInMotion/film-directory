@@ -17,7 +17,7 @@ Header unset X-Powered-By
 
   # Define clean urls for browsing
   RewriteRule ^film/(\d+) film.php?id=$1
-  RewriteRule ^director/(\d+) director.php?director_id=$1
+  RewriteRule ^director/(\d+) director.php?id=$1
 </IfModule>
 
 <IfModule mod_deflate.c>

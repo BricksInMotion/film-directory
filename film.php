@@ -47,7 +47,7 @@ require_once 'partials/header.php';
 
     <div class="details">
       <h2><?= $film->info->title; ?></h2>
-      <span><strong>Directed By</strong>: <a href="/director.php?director_id=<?= $director->id; ?>"><?= $director->user_name; ?></a></span><br>
+      <span><strong>Directed By</strong>: <a href="/director.php?id=<?= $director->id; ?>"><?= $director->user_name; ?></a></span><br>
       <span><strong>Released</strong>: <?= format_film_release_date($film->info->release_date); ?></span><br>
       <span><strong>Runtime</strong>: <?= format_film_runtime($film->info->runtime); ?></span><br>
       <div class="film-genres"><strong>Genres</strong>:
@@ -103,7 +103,7 @@ require_once 'partials/header.php';
           // Break up the crew name for people with multiple roles
           $job_crewname = str_replace('/', '<br>', $job->role, $count);
           echo "<div>
-            <a href=\"director.php?director_id={$job->user_id}\">{$job->description}</a>
+            <a href=\"director.php?id={$job->user_id}\">{$job->description}</a>
             <span class=\"crewname\">{$job->user_name}</span>
           </div>";
 
