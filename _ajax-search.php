@@ -1,6 +1,7 @@
 <?php
 require_once 'src/common-utils.php';
-require_once 'src/classes/Search.php';
+require_once 'src/classes/Api.php';
+
 
 $BLACKLIST = [
   '', 'a', 'an', 'the', 'of', 'for',
@@ -15,7 +16,7 @@ function no_results_found() {
 
 function render_search_results($results) {
   // There were no search results
-  if (count($results) === 0) return no_results_found();
+  if (isset($results->message)) return no_results_found();
 
   $html = '';
   foreach ($results as $v) {
@@ -38,7 +39,9 @@ if (is_empty($ajax_data) || in_array($ajax_data, $BLACKLIST)) {
 }
 
 // Search and render the results
-$results = Search::search_by_title($ajax_data);
+// var_dump(Api::make_url('search', ['film' => $ajax_data]));
+$r = Api::get(Api::make_url('search', ['film' => $ajax_data]));
+$results = load_json($r->response);
 $rendered = render_search_results($results);
 echo $rendered;
 exit;
