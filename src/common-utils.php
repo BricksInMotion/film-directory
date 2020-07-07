@@ -76,9 +76,20 @@ function render_film_list($roles) {
   return $final;
 }
 
+
 function get_json($path) {
-  return json_decode(file_get_contents($path), false);
+  return load_json(file_get_contents($path));
 }
+
+function load_json($json) {
+  return json_decode($json, false);
+}
+
+
+function get_secret($name) {
+  return file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/secrets/{$name}");
+}
+
 
 function rewrite_youtu_be_url($url) {
   // Extract the video id from a youtu.be url
