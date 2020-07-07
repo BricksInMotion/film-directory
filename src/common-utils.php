@@ -12,6 +12,7 @@ function escape_xss($text) {
   return htmlentities(strip_tags(trim($text)));
 }
 
+
 /**
  * Check if some text is empty.
  *
@@ -21,6 +22,7 @@ function escape_xss($text) {
 function is_empty($text) {
   return (bool) preg_match('/^\s{0}$/', $text) === true;
 }
+
 
 function convert_bb_code($text) {
   $start_bb_tags = ['[b]', '[i]'];
@@ -34,6 +36,7 @@ function convert_bb_code($text) {
   $text = str_replace($end_bb_tags, $end_html_tags, $text);
   return nl2br(trim($text));
 }
+
 
 function format_film_runtime($seconds) {
   // A film is always >= 1 second. If this case is hit,
@@ -54,21 +57,24 @@ function format_film_runtime($seconds) {
   return sprintf('%02d:%02d', $mins, $secs);
 }
 
+
 function format_film_release_date($date) {
   $dt = new DateTime($date);
   return $dt->format('F jS, Y');
 }
+
 
 function redirect_url($url) {
   header("Location: {$url}");
   exit;
 }
 
+
 function render_film_list($roles) {
   $final = '<ul class ="role-list">';
   foreach ($roles as $role) {
     $final .= "<li>
-    <a href='/film.php?film_id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small><br>
+    <a href='/film.php?id={$role->id}'>{$role->title}</a> <small>({$role->year_released})</small><br>
     <div class='role-single'>{$role->role}</div>
     </li>";
   }
