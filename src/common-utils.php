@@ -93,7 +93,7 @@ function load_json($json) {
 
 
 function get_secret($name) {
-  return file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/secrets/{$name}");
+  return trim(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/secrets/{$name}"));
 }
 
 
