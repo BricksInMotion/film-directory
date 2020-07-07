@@ -104,8 +104,8 @@ require_once 'partials/header.php';
           // Break up the crew name for people with multiple roles
           $job_crewname = str_replace('/', '<br>', $job->role, $count);
           echo "<div>
-            <a href=\"director.php?id={$job->user_id}\">{$job->description}</a>
-            <span class=\"crewname\">{$job->user_name}</span>
+            <a href=\"director.php?id={$job->user_id}\">{$job->user_name}</a>
+            <span class=\"crewname\">{$job->description}</span>
           </div>";
 
           // For every line we had to break, shift the next role down
