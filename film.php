@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 require_once 'src/common-utils.php';
 require_once 'src/classes/Api.php';
 
@@ -47,7 +44,11 @@ require_once 'partials/header.php';
 
     <div class="details">
       <h2><?= $film->info->title; ?></h2>
-      <span><strong>Directed By</strong>: <a href="/director.php?id=<?= $director->id; ?>"><?= $director->user_name; ?></a></span><br>
+      <span>
+        <strong>Directed By</strong>: <a href="/director.php?id=<?= $director->id; ?>">
+          <?= $director->real_name; ?> <small>(<?= $director->user_name; ?>)</small>
+        </a>
+      </span><br>
       <span><strong>Released</strong>: <?= format_film_release_date($film->info->release_date); ?></span><br>
       <span><strong>Runtime</strong>: <?= format_film_runtime($film->info->runtime); ?></span><br>
       <div class="film-genres"><strong>Genres</strong>:
