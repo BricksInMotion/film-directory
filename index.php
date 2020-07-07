@@ -4,11 +4,11 @@ $pageStyles = ['style-index.css'];
 require_once 'partials/head.php';
 require_once 'partials/header.php';
 require_once 'src/common-utils.php';
-require_once 'src/classes/Index.php';
+// require_once 'src/classes/Index.php';
 
 // Always start a new session on page reload
 (session_status() === PHP_SESSION_NONE ? session_start() : $_SESSION = []);
-$index = new Index;
+// $index = new Index;
 ?>
 
 <main>
@@ -23,9 +23,9 @@ $index = new Index;
    <h2>View films by year</h2>
     <div class="area-filter-year">
   <?php
-    foreach ($index::get_film_years() as $year):
-      echo "<span class='btn-filter-year' data-year='{$year}'>{$year}</span>";
-    endforeach;
+    // foreach ($index::get_film_years() as $year):
+    //   echo "<span class='btn-filter-year' data-year='{$year}'>{$year}</span>";
+    // endforeach;
   ?>
   </div>
   </section>
