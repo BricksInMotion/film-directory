@@ -16,7 +16,7 @@ Header unset X-Powered-By
   RedirectMatch 404 /src/?
 
   # Define clean urls for browsing
-  RewriteRule ^film/(\d+) film.php?film_id=$1
+  RewriteRule ^film/(\d+) film.php?id=$1
   RewriteRule ^director/(\d+) director.php?director_id=$1
 </IfModule>
 
